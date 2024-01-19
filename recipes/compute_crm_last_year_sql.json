@@ -46,7 +46,10 @@
         "pipelineAllowStart": true,
         "pipelineAllowMerge": true
       },
-      "lowerCaseSchemaIfEngineRequiresIt": false
+      "lowerCaseSchemaIfEngineRequiresIt": false,
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      }
     }
   },
   "customMeta": {
@@ -77,19 +80,13 @@
     }
   },
   "labels": [],
-  "versionTag": {
-    "versionNumber": 5,
-    "lastModifiedBy": {
-      "login": "admin"
-    },
-    "lastModifiedOn": 1678747259766
-  },
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1631196909368
+    "lastModifiedOn": 1631196909368,
+    "extendedProperties": {}
   },
   "tags": [
     "connections"
