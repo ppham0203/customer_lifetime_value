@@ -1,78 +1,124 @@
 {
-  "computedColumns": [],
-  "enableAutoCastInJoinConditions": false,
+  "joins": [
+    {
+      "table2": 1,
+      "table1": 0,
+      "conditionsMode": "AND",
+      "type": "LEFT",
+      "outerJoinOnTheLeft": true,
+      "on": [
+        {
+          "column1": {
+            "name": "customer_id",
+            "table": 0
+          },
+          "dateDiffUnit": "DAY",
+          "column2": {
+            "name": "customer_id",
+            "table": 1
+          },
+          "maxMatches": 1,
+          "caseInsensitive": false,
+          "maxDistance": 0,
+          "normalizeText": false,
+          "strict": false,
+          "type": "EQ"
+        }
+      ]
+    }
+  ],
+  "selectedColumns": [
+    {
+      "name": "customer_id",
+      "type": "string",
+      "table": 0
+    },
+    {
+      "name": "pages_visited",
+      "type": "string",
+      "table": 0
+    },
+    {
+      "name": "campaign",
+      "type": "string",
+      "table": 0
+    },
+    {
+      "name": "ip",
+      "type": "string",
+      "table": 1
+    },
+    {
+      "name": "Country",
+      "type": "string",
+      "table": 1
+    },
+    {
+      "name": "GDP_per_cap",
+      "type": "bigint",
+      "table": 1
+    }
+  ],
+  "resolvedSelectedColumns": [],
   "engineParams": {
     "hive": {
-      "addDkuUdf": false,
-      "executionEngine": "HIVESERVER2",
+      "skipPrerunValidate": false,
       "hiveconf": [],
       "inheritConf": "default",
-      "skipPrerunValidate": false
+      "addDkuUdf": false,
+      "executionEngine": "HIVESERVER2"
+    },
+    "sqlPipelineParams": {
+      "pipelineAllowMerge": true,
+      "pipelineAllowStart": true
     },
     "impala": {
       "forceStreamMode": true
     },
     "lowerCaseSchemaIfEngineRequiresIt": true,
     "sparkSQL": {
-      "executionEngine": "SPARK_SUBMIT",
-      "overwriteOutputSchema": false,
+      "skipPrerunValidate": false,
       "pipelineAllowMerge": true,
       "pipelineAllowStart": true,
+      "useGlobalMetastore": false,
       "readParams": {
+        "mode": "AUTO",
         "autoModeRepartitionInto": 10,
         "map": {
+          "customer_countries": {
+            "cache": false,
+            "repartition": 10
+          },
           "cust_web": {
             "cache": false,
             "repartition": 10
           },
-          "customer_countries": {
+          "web_data_last_year": {
             "cache": false,
             "repartition": 10
           }
-        },
-        "mode": "AUTO"
+        }
       },
-      "skipPrerunValidate": false,
+      "overwriteOutputSchema": false,
+      "executionEngine": "SPARK_SUBMIT",
       "sparkConfig": {
         "conf": [],
         "inheritConf": "default"
-      },
-      "useGlobalMetastore": false
-    },
-    "sqlPipelineParams": {
-      "pipelineAllowMerge": true,
-      "pipelineAllowStart": true
+      }
     }
   },
   "engineType": "SPARK",
-  "joins": [
+  "virtualInputs": [
     {
-      "conditionsMode": "AND",
-      "on": [
-        {
-          "caseInsensitive": false,
-          "column1": {
-            "name": "customer_id",
-            "table": 0
-          },
-          "column2": {
-            "name": "customer_id",
-            "table": 1
-          },
-          "dateDiffUnit": "DAY",
-          "maxDistance": 0,
-          "maxMatches": 1,
-          "normalizeText": false,
-          "strict": false,
-          "type": "EQ"
-        }
-      ],
-      "outerJoinOnTheLeft": true,
-      "table1": 0,
-      "table2": 1,
-      "type": "LEFT"
+      "outputColumnsSelectionMode": "MANUAL",
+      "index": 1
+    },
+    {
+      "outputColumnsSelectionMode": "MANUAL",
+      "index": 0
     }
   ],
+  "computedColumns": [],
   "postFilter": {
     "$status": {
       "schema": {
@@ -90,23 +136,23 @@
             "type": "string"
           },
           {
-            "comment": "",
-            "maxLength": 4194304,
+            "originalType": "VARCHAR",
             "name": "ip",
-            "originalType": "VARCHAR",
-            "type": "string"
+            "comment": "",
+            "type": "string",
+            "maxLength": 4194304
           },
           {
-            "comment": "",
-            "maxLength": 4194304,
+            "originalType": "VARCHAR",
             "name": "Country",
-            "originalType": "VARCHAR",
-            "type": "string"
+            "comment": "",
+            "type": "string",
+            "maxLength": 4194304
           },
           {
-            "comment": "",
-            "name": "GDP_per_cap",
             "originalType": "NUMBER",
+            "name": "GDP_per_cap",
+            "comment": "what this field means",
             "type": "bigint"
           }
         ],
@@ -114,54 +160,5 @@
       }
     }
   },
-  "resolvedSelectedColumns": [],
-  "selectedColumns": [
-    {
-      "name": "customer_id",
-      "table": 0,
-      "type": "string"
-    },
-    {
-      "name": "pages_visited",
-      "table": 0,
-      "type": "string"
-    },
-    {
-      "name": "campaign",
-      "table": 0,
-      "type": "string"
-    },
-    {
-      "name": "ip",
-      "table": 1,
-      "type": "string"
-    },
-    {
-      "name": "Country",
-      "table": 1,
-      "type": "string"
-    },
-    {
-      "name": "GDP_per_cap",
-      "table": 1,
-      "type": "bigint"
-    }
-  ],
-  "virtualInputs": [
-    {
-      "autoSelectColumns": false,
-      "computedColumns": [],
-      "index": 0,
-      "originLabel": "cust_web",
-      "outputColumnsSelectionMode": "MANUAL",
-      "preFilter": {
-        "distinct": false,
-        "enabled": false
-      }
-    },
-    {
-      "index": 1,
-      "outputColumnsSelectionMode": "MANUAL"
-    }
-  ]
+  "enableAutoCastInJoinConditions": false
 }
