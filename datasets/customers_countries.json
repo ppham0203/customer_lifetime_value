@@ -97,10 +97,10 @@
   },
   "schema": {
     "columns": [
-      {"name":"col_0","type":"string"},
-      {"name":"col_1","type":"string"},
-      {"name":"col_2","type":"string"},
-      {"name":"col_3","type":"string"}
+      {"name":"customer_id","type":"string"},
+      {"name":"ip","type":"string"},
+      {"name":"Country","type":"string"},
+      {"name":"GDP_per_cap","type":"bigint"}
     ],
     "userModified": true
   },
