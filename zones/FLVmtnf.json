@@ -23,10 +23,6 @@
       "objectType": "RECIPE"
     },
     {
-      "objectId": "cust_web",
-      "objectType": "DATASET"
-    },
-    {
       "objectId": "compute_cust_web_joined",
       "objectType": "RECIPE"
     },
