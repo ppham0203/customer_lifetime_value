@@ -1,0 +1,48 @@
+{
+  "name": "Model Drift and Monitoring",
+  "color": "#465A64",
+  "items": [
+    {
+      "objectId": "target_feedback",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "target_feedback_joined",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_target_feedback_joined",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "ground_truth_scored",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "metrics",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "evaluate_on_target_feedback_joined",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "target_feedback_joined_prepared",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_target_feedback_joined_prepared",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "BIEDMF0O",
+      "objectType": "MODEL_EVALUATION_STORE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

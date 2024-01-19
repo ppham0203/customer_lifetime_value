@@ -1,0 +1,31 @@
+{
+  "type": "filters",
+  "params": {
+    "datasetSmartName": "metrics"
+  },
+  "owner": "chris.helmus@dataiku.com",
+  "listed": false,
+  "name": "Filters on metrics",
+  "dashboardCreationId": "49oWPyU",
+  "versionTag": {
+    "versionNumber": 1,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1700167909683,
+    "extendedProperties": {}
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1700167889965,
+    "extendedProperties": {}
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

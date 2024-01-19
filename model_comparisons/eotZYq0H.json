@@ -1,0 +1,74 @@
+{
+    "displayName": "Visual vs Custom",
+    "predictionType": "BINARY_CLASSIFICATION",
+    "comparedModels": [
+        {
+            "smartId": "S-*-k8TTMGGi-catboost_2023_03_16_19_19",
+            "isSelected": true,
+            "color": "#0ed4ff",
+            "isChampion": false
+        },
+        {
+            "smartId": "S-*-0tV18riV-1649167991784",
+            "isSelected": true,
+            "color": "#1f77b4",
+            "isChampion": false
+        }
+    ],
+    "displayParams": {
+        "displayedMetrics": [
+            "ACCURACY",
+            "PRECISION",
+            "RECALL",
+            "F1",
+            "COST_MATRIX",
+            "LOG_LOSS",
+            "ROC_AUC",
+            "AVERAGE_PRECISION",
+            "CALIBRATION_LOSS",
+            "CUMULATIVE_LIFT"
+        ],
+        "predictionType": "BINARY_CLASSIFICATION",
+        "pinnedMetrics": [
+            "ROC_AUC"
+        ],
+        "xLabel": "model:date",
+        "yLabels": [
+            "model:algorithm",
+            "evaluation:date",
+            "evaluationDataset:dataset-name"
+        ],
+        "alsoDisplayedLabels": [],
+        "barLabels": [
+            "evaluation:date",
+            "model:name",
+            "evaluationDataset:dataset-name"
+        ],
+        "graphStyle": "BAR",
+        "sortColumn": "",
+        "sortDescending": false,
+        "showConfidenceIntervals": true,
+        "disabledMERunIds": []
+    },
+    "versionTag": {
+        "versionNumber": 9,
+        "lastModifiedBy": {
+            "login": "chris.helmus@dataiku.com"
+        },
+        "lastModifiedOn": 1694447432068,
+        "extendedProperties": {}
+    },
+    "creationTag": {
+        "versionNumber": 0,
+        "lastModifiedBy": {
+            "login": "chris.helmus@dataiku.com"
+        },
+        "lastModifiedOn": 1694447369084,
+        "extendedProperties": {}
+    },
+    "tags": [],
+    "customFields": {},
+    "checklists": {
+        "checklists": []
+    }
+}

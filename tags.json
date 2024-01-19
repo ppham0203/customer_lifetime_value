@@ -1,0 +1,50 @@
+{
+  "tags": {
+    "mlops": {
+      "color": "#de1ea5"
+    },
+    "snowflake_demo": {
+      "color": "#1ac2ab"
+    },
+    "recipe-editor": {
+      "color": "#1ac2ab"
+    },
+    "Analytics Type:BI": {
+      "color": "#77bec2"
+    },
+    "snowflake-demo": {
+      "color": "#FFD83D"
+    },
+    "demo": {
+      "color": "#94be8e"
+    },
+    "model train": {
+      "color": "#a088bd"
+    },
+    "duplicated": {
+      "color": "#3A85AD"
+    },
+    "deleted-recipe-editor": {
+      "color": "#90a8b7"
+    },
+    "feature generation": {
+      "color": "#FFD83D"
+    },
+    "origin:sql_import": {
+      "color": "#FFD83D"
+    },
+    "imported": {
+      "color": "#263238"
+    },
+    "metric_check": {
+      "color": "#0f6d82"
+    },
+    "results": {
+      "color": "#db3d95"
+    },
+    "connections": {
+      "color": "#a177c2"
+    },
+    "customer": {}
+  }
+}

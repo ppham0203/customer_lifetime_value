@@ -1,0 +1,452 @@
+{
+  "queries": {
+    "2q67vffj6b4": [
+      {
+        "mode": "SQL",
+        "id": "kfVle0UB3DAS",
+        "runOn": 1670939695980,
+        "runIn": 2639,
+        "runBy": "admin",
+        "connection": "snowflake_demo",
+        "state": "FAILED",
+        "futureId": "3S927rW2",
+        "hash": "ff9c4751d279e4b257cec55a40fd0857",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "call train_helmus();\n",
+        "expandedSql": "call train_helmus();\n"
+      },
+      {
+        "mode": "SQL",
+        "id": "xFhnUbchcFfH",
+        "runOn": 1670939794746,
+        "runIn": 5819,
+        "runBy": "admin",
+        "connection": "snowflake_demo",
+        "state": "DONE",
+        "futureId": "RoThKFO5",
+        "hash": "ff9c4751d279e4b257cec55a40fd0857",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "call train_helmus();\n",
+        "expandedSql": "call train_helmus();\n"
+      }
+    ],
+    "b86qbu4hh9j": [
+      {
+        "mode": "SQL",
+        "id": "7wjHrdOALVFs",
+        "runOn": 1670939742510,
+        "runIn": 28400,
+        "runBy": "admin",
+        "connection": "snowflake_demo",
+        "state": "DONE",
+        "futureId": "PwmyRvpd",
+        "hash": "6d9a74a30035d73b2dd3f699512adb18",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "create or replace procedure train_helmus()\n  returns variant\n  language python\n  runtime_version \u003d 3.8\n  packages \u003d (\u0027snowflake-snowpark-python\u0027, \u0027scikit-learn\u0027, \u0027joblib\u0027)\n  handler \u003d \u0027main\u0027\nas $$\n\nfrom sklearn.compose import ColumnTransformer\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import PolynomialFeatures\nfrom sklearn.preprocessing import StandardScaler, OneHotEncoder\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.model_selection import train_test_split, GridSearchCV\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import GridSearchCV\nfrom sklearn.metrics import roc_auc_score\n\n\nimport os\nfrom joblib import dump\n\ndef main(session):\n    # Load features\n    df \u003d session.table(\u0027SEDEMO.PUBLIC.CODER_HANDSON_SNOWFLAKE_TRAIN\u0027).to_pandas()\n\n    # Dataset Settings\n    #-----------------------------------------------------------------\n\n    # Select a subset of features to use for training\n    SCHEMA \u003d {    \n        \u0027target\u0027: \u0027high_value\u0027,    \n        \u0027features_num\u0027: [\u0027age\u0027, \u0027price_first_item_purchased\u0027, \u0027pages_visited\u0027],    \n        \u0027features_cat\u0027: [\u0027gender\u0027, \u0027campaign\u0027]    \n    }\n\n    # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE\n    #-----------------------------------------------------------------\n    # Preprocessing on Training Set\n    #-----------------------------------------------------------------\n\n    # Numerical variables\n    df_num \u003d df[SCHEMA[\u0027features_num\u0027]]\n\n    trf_num \u003d Pipeline([\n        (\u0027imp\u0027, SimpleImputer(strategy\u003d\u0027mean\u0027)),\n        (\u0027sts\u0027, StandardScaler()),\n    ])\n\n    # Categorical variables\n    df_cat \u003d df[SCHEMA[\u0027features_cat\u0027]]\n\n    trf_cat \u003d OneHotEncoder(handle_unknown\u003d\"ignore\")\n\n    preprocessor \u003d ColumnTransformer(\n        transformers\u003d[\n            (\"num\", trf_num, SCHEMA[\u0027features_num\u0027]),\n            (\"cat\", trf_cat, SCHEMA[\u0027features_cat\u0027])\n        ]\n    )\n\n    # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE\n    #-------------------------------------------------------------------------\n    # TRAINING\n    #-------------------------------------------------------------------------\n\n    clf \u003d Pipeline(\n        steps\u003d[(\"preprocessor\", preprocessor), (\"clf\", RandomForestClassifier())]\n    )\n\n    param_grid \u003d {\n        \"clf__max_depth\"        : [3, None],\n        \"clf__max_features\"     : [1],\n        \"clf__min_samples_split\": [2],\n        \"clf__min_samples_leaf\" : [1],\n        \"clf__bootstrap\"        : [False],\n        \"clf__criterion\"        : [\"entropy\"],\n        \"clf__n_estimators\"     : [10]\n    }\n\n    gs \u003d GridSearchCV(clf, param_grid\u003dparam_grid, n_jobs\u003d-1, scoring\u003d\u0027roc_auc\u0027, cv\u003d3)\n    X \u003d df[SCHEMA[\u0027features_num\u0027] + SCHEMA[\u0027features_cat\u0027]]\n    Y \u003d df[SCHEMA[\u0027target\u0027]].values\n    gs.fit(X, Y)\n    model \u003d gs.best_estimator_\n    train_r2_score \u003d model.score(X, Y)\n\n    model_saved \u003d False\n\n\n    # Return model R2 score on train and test data\n    return {\"R2 score on Train\": train_r2_score}\n$$;",
+        "expandedSql": "create or replace procedure train_helmus()\n  returns variant\n  language python\n  runtime_version \u003d 3.8\n  packages \u003d (\u0027snowflake-snowpark-python\u0027, \u0027scikit-learn\u0027, \u0027joblib\u0027)\n  handler \u003d \u0027main\u0027\nas $$\n\nfrom sklearn.compose import ColumnTransformer\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import PolynomialFeatures\nfrom sklearn.preprocessing import StandardScaler, OneHotEncoder\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.model_selection import train_test_split, GridSearchCV\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import GridSearchCV\nfrom sklearn.metrics import roc_auc_score\n\n\nimport os\nfrom joblib import dump\n\ndef main(session):\n    # Load features\n    df \u003d session.table(\u0027SEDEMO.PUBLIC.CODER_HANDSON_SNOWFLAKE_TRAIN\u0027).to_pandas()\n\n    # Dataset Settings\n    #-----------------------------------------------------------------\n\n    # Select a subset of features to use for training\n    SCHEMA \u003d {    \n        \u0027target\u0027: \u0027high_value\u0027,    \n        \u0027features_num\u0027: [\u0027age\u0027, \u0027price_first_item_purchased\u0027, \u0027pages_visited\u0027],    \n        \u0027features_cat\u0027: [\u0027gender\u0027, \u0027campaign\u0027]    \n    }\n\n    # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE\n    #-----------------------------------------------------------------\n    # Preprocessing on Training Set\n    #-----------------------------------------------------------------\n\n    # Numerical variables\n    df_num \u003d df[SCHEMA[\u0027features_num\u0027]]\n\n    trf_num \u003d Pipeline([\n        (\u0027imp\u0027, SimpleImputer(strategy\u003d\u0027mean\u0027)),\n        (\u0027sts\u0027, StandardScaler()),\n    ])\n\n    # Categorical variables\n    df_cat \u003d df[SCHEMA[\u0027features_cat\u0027]]\n\n    trf_cat \u003d OneHotEncoder(handle_unknown\u003d\"ignore\")\n\n    preprocessor \u003d ColumnTransformer(\n        transformers\u003d[\n            (\"num\", trf_num, SCHEMA[\u0027features_num\u0027]),\n            (\"cat\", trf_cat, SCHEMA[\u0027features_cat\u0027])\n        ]\n    )\n\n    # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE\n    #-------------------------------------------------------------------------\n    # TRAINING\n    #-------------------------------------------------------------------------\n\n    clf \u003d Pipeline(\n        steps\u003d[(\"preprocessor\", preprocessor), (\"clf\", RandomForestClassifier())]\n    )\n\n    param_grid \u003d {\n        \"clf__max_depth\"        : [3, None],\n        \"clf__max_features\"     : [1],\n        \"clf__min_samples_split\": [2],\n        \"clf__min_samples_leaf\" : [1],\n        \"clf__bootstrap\"        : [False],\n        \"clf__criterion\"        : [\"entropy\"],\n        \"clf__n_estimators\"     : [10]\n    }\n\n    gs \u003d GridSearchCV(clf, param_grid\u003dparam_grid, n_jobs\u003d-1, scoring\u003d\u0027roc_auc\u0027, cv\u003d3)\n    X \u003d df[SCHEMA[\u0027features_num\u0027] + SCHEMA[\u0027features_cat\u0027]]\n    Y \u003d df[SCHEMA[\u0027target\u0027]].values\n    gs.fit(X, Y)\n    model \u003d gs.best_estimator_\n    train_r2_score \u003d model.score(X, Y)\n\n    model_saved \u003d False\n\n\n    # Return model R2 score on train and test data\n    return {\"R2 score on Train\": train_r2_score}\n$$;"
+      }
+    ],
+    "9voqo7t6a05": [
+      {
+        "mode": "SQL",
+        "id": "7J9LDpKVDB1C",
+        "runOn": 1690922865877,
+        "runIn": 1776,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "fthRroa6",
+        "hash": "2baf43efa792d1be15fe74109d17d06a",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT * FROM \"SEDEMO\".\"PUBLIC\".\"MODERNONLINECUSTOMERLIFETIMEVALUE_CUSTOMER_COUNTRIES\"",
+        "expandedSql": "SELECT * FROM \"SEDEMO\".\"PUBLIC\".\"MODERNONLINECUSTOMERLIFETIMEVALUE_CUSTOMER_COUNTRIES\""
+      },
+      {
+        "mode": "SQL",
+        "id": "IyrYzzqQ4Dzi",
+        "runOn": 1690922885128,
+        "runIn": 1204,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "tSf8lsD3",
+        "hash": "2d9867a4752e7fceecffda1da99510f0",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT * FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\"",
+        "expandedSql": "SELECT * FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\""
+      },
+      {
+        "mode": "SQL",
+        "id": "IWcSoZL2AF9R",
+        "runOn": 1690922928388,
+        "runIn": 385,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "FAILED",
+        "futureId": "UYQU47xW",
+        "hash": "619cbcc4548945de57f631bb7a96502c",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT gender, max(revenue) as max_revenue FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\"",
+        "expandedSql": "SELECT gender, max(revenue) as max_revenue FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\""
+      },
+      {
+        "mode": "SQL",
+        "id": "4GMKJskzbPge",
+        "runOn": 1690922954449,
+        "runIn": 371,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "FAILED",
+        "futureId": "wEjWOEdk",
+        "hash": "c40e99427f2b0ea82c36cfd2ea3d8171",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT \u0027gender\u0027, max(\u0027revenue\u0027) as \u0027max_revenue\u0027 FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\"",
+        "expandedSql": "SELECT \u0027gender\u0027, max(\u0027revenue\u0027) as \u0027max_revenue\u0027 FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\""
+      },
+      {
+        "mode": "SQL",
+        "id": "a0nIFOpq8FuS",
+        "runOn": 1690922978872,
+        "runIn": 316,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "FAILED",
+        "futureId": "0h7OKdPq",
+        "hash": "ae48cfcab5447144a2ff22984b77e711",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\"",
+        "expandedSql": "SELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\""
+      },
+      {
+        "mode": "SQL",
+        "id": "RRUZUuA3cifN",
+        "runOn": 1690922995741,
+        "runIn": 1174,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "ZdWOIfNo",
+        "hash": "a7ba6a091b9eed67b73cd0829d9d5116",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"",
+        "expandedSql": "SELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\""
+      },
+      {
+        "mode": "SQL",
+        "id": "ClkpGyggWwlC",
+        "runOn": 1690923004772,
+        "runIn": 244,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "FAILED",
+        "futureId": "F5FDMJLy",
+        "hash": "8856381b5fc0d95e8b8427d61d39ada2",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT \"gender\", first(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"",
+        "expandedSql": "SELECT \"gender\", first(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\""
+      },
+      {
+        "mode": "SQL",
+        "id": "C4MthzXQPkmQ",
+        "runOn": 1690923011498,
+        "runIn": 463,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "I3V70ngw",
+        "hash": "a7ba6a091b9eed67b73cd0829d9d5116",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"",
+        "expandedSql": "SELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\""
+      },
+      {
+        "mode": "SQL",
+        "id": "Iry5ug6DH3wd",
+        "runOn": 1690923082915,
+        "runIn": 1051,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "frSySF9r",
+        "hash": "b1218853eab017392fe91dc4d56e0d79",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "RAW",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT * FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )",
+        "expandedSql": "SELECT * FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )"
+      },
+      {
+        "mode": "SQL",
+        "id": "aeLTVDv7RyFP",
+        "runOn": 1690930302537,
+        "runIn": 580,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "oamu5PmH",
+        "hash": "b1218853eab017392fe91dc4d56e0d79",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT * FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )",
+        "expandedSql": "SELECT * FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )"
+      },
+      {
+        "mode": "SQL",
+        "id": "q5aC2EpSivzE",
+        "runOn": 1690930331582,
+        "runIn": 375,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "SD8HE7kH",
+        "hash": "b1218853eab017392fe91dc4d56e0d79",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "UNPREPARED"
+        },
+        "sql": "SELECT * FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )",
+        "expandedSql": "SELECT * FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )"
+      },
+      {
+        "mode": "SQL",
+        "id": "e5IW6QNVYSdb",
+        "runOn": 1690930340343,
+        "runIn": 831,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "2XkpJrxe",
+        "hash": "61cc7825de27b8e0ddec3137098443c6",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "SPLIT",
+          "statementsExecutionMode": "UNPREPARED"
+        },
+        "sql": "SELECT \"max_revenue\" FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )",
+        "expandedSql": "SELECT \"max_revenue\" FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )"
+      },
+      {
+        "mode": "SQL",
+        "id": "WDsHD35U9UZd",
+        "runOn": 1690930351697,
+        "runIn": 379,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "u2k4T74c",
+        "hash": "61cc7825de27b8e0ddec3137098443c6",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "RAW",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT \"max_revenue\" FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )",
+        "expandedSql": "SELECT \"max_revenue\" FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )"
+      },
+      {
+        "mode": "SQL",
+        "id": "kuIbhw25iBs9",
+        "runOn": 1690930458852,
+        "runIn": 453,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "TY1vwQKs",
+        "hash": "61cc7825de27b8e0ddec3137098443c6",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": true,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "RAW",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT \"max_revenue\" FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )",
+        "expandedSql": "SELECT \"max_revenue\" FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )"
+      },
+      {
+        "mode": "SQL",
+        "id": "zoHoREuphNGM",
+        "runOn": 1690930481369,
+        "runIn": 255,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "DONE",
+        "futureId": "cp9LQJ1E",
+        "hash": "61cc7825de27b8e0ddec3137098443c6",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "RAW",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "SELECT \"max_revenue\" FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )",
+        "expandedSql": "SELECT \"max_revenue\" FROM(\n\nSELECT \"gender\", max(\"revenue\") as \"max_revenue\" FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY \"gender\"\n    \n    )"
+      }
+    ],
+    "0.17665441149291272": [
+      {
+        "mode": "SQL",
+        "id": "OpVzEtv5niFj",
+        "runOn": 1690930603515,
+        "runIn": 168,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "FAILED",
+        "futureId": "EWhFLx5j",
+        "hash": "ca02f0cb788ea94e04fb6cf30b454376",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "RAW",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "select  max_revenue FROM\n(\n\nSELECT gender, max(revenue) as max_revenue FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY gender\n    \n    )",
+        "expandedSql": "select  max_revenue FROM\n(\n\nSELECT gender, max(revenue) as max_revenue FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY gender\n    \n    )"
+      },
+      {
+        "mode": "SQL",
+        "id": "vItg16O0csux",
+        "runOn": 1690930859009,
+        "runIn": 285,
+        "runBy": "chris.helmus@dataiku.com",
+        "connection": "snowflake-demo",
+        "state": "FAILED",
+        "futureId": "U6Nm9j7N",
+        "hash": "21963dea055c1808a05eb36a0c7bce3d",
+        "querySettings": {
+          "addLimitToStatement": true,
+          "statementsOutOfTransaction": false,
+          "inheritConf": "default",
+          "extraConf": [],
+          "addDkuUdf": false,
+          "statementsParseMode": "RAW",
+          "statementsExecutionMode": "PREPARED"
+        },
+        "sql": "select  max_revenue FROM\n(\n\nSELECT GENDER, max(revenue) as max_revenue FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY GENDER\n    \n    )",
+        "expandedSql": "select  max_revenue FROM\n(\n\nSELECT GENDER, max(revenue) as max_revenue FROM \"MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" GROUP BY GENDER\n    \n    )"
+      }
+    ]
+  }
+}

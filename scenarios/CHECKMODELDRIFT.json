@@ -1,0 +1,142 @@
+{
+  "type": "step_based",
+  "name": "Check model drift",
+  "active": false,
+  "runAsUser": "peter.pham@dataiku.com",
+  "creationTag": {
+    "versionNumber": 24,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1649167514753,
+    "extendedProperties": {}
+  },
+  "checklists": {
+    "checklists": []
+  },
+  "delayedTriggersBehavior": {
+    "delayWhileRunning": true,
+    "squashDelayedTriggers": true,
+    "suppressTriggersWhileRunning": true
+  },
+  "tags": [],
+  "triggers": [
+    {
+      "id": "tNib2imk",
+      "type": "temporal",
+      "name": "Time-based",
+      "delay": 5,
+      "active": false,
+      "params": {
+        "repeatFrequency": 1,
+        "frequency": "Monthly",
+        "startingFrom": "2021-09-16",
+        "daysOfWeek": [
+          "Thursday"
+        ],
+        "monthlyRunOn": "ON_THE_DAY",
+        "minute": 40,
+        "hour": 13,
+        "timezone": "SERVER",
+        "lastUpdate": 0
+      }
+    },
+    {
+      "id": "qSiRYiMz",
+      "type": "sql_query",
+      "name": "Ground Truth Updated",
+      "delay": 900,
+      "active": false,
+      "params": {
+        "connection": "api-node-referenced-data",
+        "sql": "SELECT COUNT(*) FROM ${projectKey}_target_feedback_joined_prepared;",
+        "hasLimit": true,
+        "limit": 10000
+      },
+      "graceDelaySettings": {
+        "delay": 120,
+        "checkAgainAfterGraceDelay": true
+      }
+    }
+  ],
+  "reporters": [],
+  "params": {
+    "steps": [
+      {
+        "id": "build_0_true_d_metrics",
+        "type": "build_flowitem",
+        "name": "metrics on new ground truth",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "builds": [
+            {
+              "type": "DATASET",
+              "itemId": "metrics",
+              "partitionsSpec": ""
+            }
+          ],
+          "jobType": "RECURSIVE_BUILD",
+          "autoUpdateSchemaBeforeEachRecipeRun": false,
+          "stopAtFlowZoneBoundary": false,
+          "refreshHiveMetastore": true,
+          "handleWarningsAs": "WARNING",
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "check_false_d_metrics",
+        "type": "check_dataset",
+        "name": "accuracy_precision_recall",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "checks": [
+            {
+              "type": "DATASET",
+              "itemId": "metrics",
+              "partitionsSpec": ""
+            }
+          ],
+          "handleWarningsAs": "WARNING",
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "run_scenario_null.Model_retrain_and_update",
+        "type": "run_scenario",
+        "name": "Model retrain and update",
+        "runConditionType": "RUN_CONDITIONALLY",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "stepOutcome_accuracy_precision_recall !\u003d \u0027SUCCESS\u0027",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "scenarioId": "Model_retrain_and_update",
+          "handleWarningsAs": "WARNING",
+          "proceedOnFailure": false
+        }
+      }
+    ]
+  },
+  "automationLocal": false,
+  "customFields": {}
+}

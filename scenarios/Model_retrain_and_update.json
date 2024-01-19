@@ -1,0 +1,185 @@
+{
+  "type": "step_based",
+  "name": "Model retrain and update",
+  "active": false,
+  "runAsUser": "peter.pham@dataiku.com",
+  "creationTag": {
+    "versionNumber": 13,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1680546156078,
+    "extendedProperties": {}
+  },
+  "checklists": {
+    "checklists": []
+  },
+  "delayedTriggersBehavior": {
+    "delayWhileRunning": true,
+    "squashDelayedTriggers": true,
+    "suppressTriggersWhileRunning": true
+  },
+  "tags": [],
+  "triggers": [
+    {
+      "id": "0PcKotIT",
+      "type": "temporal",
+      "name": "Monthly",
+      "delay": 5,
+      "active": false,
+      "params": {
+        "repeatFrequency": 1,
+        "frequency": "Monthly",
+        "startingFrom": "2021-09-14",
+        "daysOfWeek": [
+          "Tuesday"
+        ],
+        "monthlyRunOn": "ON_THE_DAY",
+        "minute": 41,
+        "hour": 15,
+        "timezone": "SERVER",
+        "lastUpdate": 1680546156078
+      }
+    }
+  ],
+  "reporters": [],
+  "params": {
+    "steps": [
+      {
+        "id": "build_0_true",
+        "type": "build_flowitem",
+        "name": "datasets",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "builds": [
+            {
+              "type": "DATASET",
+              "itemId": "last_year_join",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "customer_data_clean",
+              "partitionsSpec": ""
+            },
+            {
+              "type": "DATASET",
+              "itemId": "customer_data_clean_python",
+              "partitionsSpec": ""
+            }
+          ],
+          "jobType": "RECURSIVE_BUILD",
+          "autoUpdateSchemaBeforeEachRecipeRun": false,
+          "stopAtFlowZoneBoundary": false,
+          "refreshHiveMetastore": true,
+          "handleWarningsAs": "WARNING",
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "build_0_true_m_0tV18riV",
+        "type": "build_flowitem",
+        "name": "model",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "builds": [
+            {
+              "type": "SAVED_MODEL",
+              "itemId": "0tV18riV",
+              "partitionsSpec": ""
+            }
+          ],
+          "jobType": "RECURSIVE_BUILD",
+          "autoUpdateSchemaBeforeEachRecipeRun": false,
+          "stopAtFlowZoneBoundary": false,
+          "refreshHiveMetastore": true,
+          "handleWarningsAs": "WARNING",
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "check_false_m_0tV18riV",
+        "type": "check_dataset",
+        "name": "on model",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "checks": [
+            {
+              "type": "SAVED_MODEL",
+              "itemId": "0tV18riV",
+              "partitionsSpec": "ACTIVE"
+            }
+          ],
+          "handleWarningsAs": "WARNING",
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "package clv_score",
+        "type": "prepare_lambda_package",
+        "name": "CLV_scoring_service_autorun",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "serviceId": "clv_score",
+          "packageId": "Auto_run_v",
+          "transmogrify": true,
+          "targetVariable": "api_version",
+          "publishToAPIDeployer": true,
+          "publishedServiceId": "clv_score"
+        }
+      },
+      {
+        "id": "deploy clv_score-on-my_static_deploy_infra",
+        "type": "update_apideployer_deployment",
+        "name": "CLV_scoring_model on DEV",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "deploymentId": "clv_score-on-api_space-8716af3b-int2_node-82567e9f",
+          "newVersionId": "${api_version}"
+        }
+      }
+    ]
+  },
+  "automationLocal": false,
+  "customFields": {}
+}

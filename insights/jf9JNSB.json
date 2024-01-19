@@ -1,0 +1,31 @@
+{
+  "type": "saved-model_report",
+  "params": {
+    "savedModelSmartId": "0tV18riV"
+  },
+  "owner": "chris.helmus@dataiku.com",
+  "listed": false,
+  "name": "Prediction (RANDOM_FOREST_CLASSIFICATION) on customer_data_clean_python table",
+  "dashboardCreationId": "49oWPyU",
+  "versionTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1700167757941,
+    "extendedProperties": {}
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1700167757941,
+    "extendedProperties": {}
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

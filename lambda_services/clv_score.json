@@ -1,0 +1,61 @@
+{
+  "name": "clv_score",
+  "endpoints": [
+    {
+      "modelRef": "0tV18riV",
+      "useJava": false,
+      "computePropensity": false,
+      "outputExplanations": false,
+      "individualExplanationParams": {
+        "method": "ICE",
+        "nbExplanations": 3,
+        "drawInScoredSet": false,
+        "subChunkSize": 5000,
+        "shapleyBackgroundSize": 100
+      },
+      "mlFlowOutputStyle": "RAW",
+      "testQueries": [
+        {
+          "name": "new_customer_data #1",
+          "q": {
+            "features": {
+              "Country": "China",
+              "GDP_per_cap": "9055",
+              "age": "30",
+              "campaign": "false",
+              "customer_id": "b1d0027f46a",
+              "gender": "M",
+              "ip": "101.245.239.252",
+              "pages_visited": "9.0",
+              "price_first_item_purchased": "117.0"
+            }
+          }
+        }
+      ],
+      "enrichMapping": [],
+      "healthCheckQueries": [],
+      "returnPostEnrichData": false,
+      "auditPostEnrichData": false,
+      "id": "clv_rf",
+      "type": "STD_PREDICTION"
+    }
+  ],
+  "authMethod": "PUBLIC",
+  "authRealm": {
+    "queryKeys": []
+  },
+  "deploymentMonitoring": [],
+  "versionTag": {
+    "versionNumber": 14,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1702403665329,
+    "extendedProperties": {}
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Modeling",
+  "color": "#465A64",
+  "items": [
+    {
+      "objectId": "train_Prediction__RANDOM_FOREST_CLASSIFICATION__on_customer_data_clean_python",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "0tV18riV",
+      "objectType": "SAVED_MODEL"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

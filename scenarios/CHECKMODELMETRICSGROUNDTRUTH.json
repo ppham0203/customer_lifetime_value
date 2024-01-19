@@ -1,0 +1,249 @@
+{
+  "type": "step_based",
+  "name": "Check model metrics - ground truth",
+  "active": false,
+  "runAsUser": "peter.pham@dataiku.com",
+  "creationTag": {
+    "versionNumber": 28,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1686148606602,
+    "extendedProperties": {}
+  },
+  "checklists": {
+    "checklists": []
+  },
+  "delayedTriggersBehavior": {
+    "delayWhileRunning": true,
+    "squashDelayedTriggers": true,
+    "suppressTriggersWhileRunning": true
+  },
+  "tags": [],
+  "triggers": [
+    {
+      "id": "gIREI1EA",
+      "type": "temporal",
+      "name": "Time-based",
+      "delay": 5,
+      "active": false,
+      "params": {
+        "repeatFrequency": 1,
+        "frequency": "Weekly",
+        "startingFrom": "2022-01-26",
+        "daysOfWeek": [
+          "Wednesday"
+        ],
+        "minute": 56,
+        "hour": 5,
+        "timezone": "SERVER",
+        "lastUpdate": 1686148606602
+      }
+    }
+  ],
+  "reporters": [
+    {
+      "active": false,
+      "messaging": {
+        "type": "mail-scenario",
+        "configuration": {
+          "channelId": "my_email_channel",
+          "subject": "DSS scenario ${scenarioName}: ${outcome}",
+          "sender": "chris",
+          "recipient": "chris.helmus@dataiku.com",
+          "sendAsHTML": false,
+          "attachments": [],
+          "messageSource": "TEMPLATE_FILE",
+          "templateFormat": "FREEMARKER",
+          "templateName": "default.ftl"
+        }
+      },
+      "id": "9rCAPlIQ",
+      "name": "Model Performance Alert",
+      "runConditionEnabled": true,
+      "runCondition": "stepOutcome_precision_recall_drift !\u003d \u0027SUCCESS\u0027 ",
+      "phase": "END"
+    }
+  ],
+  "params": {
+    "steps": [
+      {
+        "id": "build_0_true_e_BIEDMF0O",
+        "type": "build_flowitem",
+        "name": "model evaluation store on ground truth",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "builds": [
+            {
+              "type": "MODEL_EVALUATION_STORE",
+              "itemId": "BIEDMF0O",
+              "partitionsSpec": ""
+            }
+          ],
+          "jobType": "RECURSIVE_BUILD",
+          "autoUpdateSchemaBeforeEachRecipeRun": false,
+          "stopAtFlowZoneBoundary": false,
+          "refreshHiveMetastore": true,
+          "handleWarningsAs": "WARNING",
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "check_false_e_BIEDMF0O",
+        "type": "check_dataset",
+        "name": "precision_recall_drift",
+        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "checks": [
+            {
+              "type": "MODEL_EVALUATION_STORE",
+              "itemId": "BIEDMF0O",
+              "partitionsSpec": ""
+            }
+          ],
+          "handleWarningsAs": "WARNING",
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "run_scenario_null.Model_retrain_and_update",
+        "type": "run_scenario",
+        "name": "Model retrain and update (copy)",
+        "runConditionType": "RUN_CONDITIONALLY",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "stepOutcome_precision_recall_drift !\u003d \u0027ERROR\u0027 ",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "scenarioId": "Model_retrain_and_update",
+          "handleWarningsAs": "WARNING",
+          "proceedOnFailure": false
+        }
+      },
+      {
+        "id": "reportb60d2503bff338b7476bcc86dafa7db5",
+        "type": "send_report",
+        "name": "email alert",
+        "runConditionType": "DISABLED",
+        "runConditionStatuses": [
+          "SUCCESS",
+          "WARNING"
+        ],
+        "runConditionExpression": "",
+        "resetScenarioStatus": false,
+        "delayBetweenRetries": 10,
+        "maxRetriesOnFail": 0,
+        "params": {
+          "failOnMessageNotSent": true,
+          "messaging": {
+            "type": "mail-scenario",
+            "configuration": {
+              "channelId": "dtk_gmail",
+              "subject": "DSS scenario ${scenarioName}: ${outcome}",
+              "recipient": "chris.helmus@dataiku.com",
+              "sendAsHTML": false,
+              "attachments": [
+                {
+                  "type": "DATASET",
+                  "params": {
+                    "addAsHtmlVariable": true,
+                    "attachedDataset": "metrics",
+                    "exportParams": {
+                      "advancedMode": false,
+                      "destinationDatasetProjectKey": "ONLINECUSTOMERLIFETIMEVALUE",
+                      "destinationType": "DOWNLOAD",
+                      "format": {
+                        "params": {
+                          "arrayMapFormat": "json",
+                          "charset": "utf8",
+                          "compress": "",
+                          "dateSerializationFormat": "ISO",
+                          "escapeChar": "\\",
+                          "fileReadFailureBehavior": "FAIL",
+                          "hiveSeparators": [
+                            "\u0002",
+                            "\u0003",
+                            "\u0004",
+                            "\u0005",
+                            "\u0006",
+                            "\u0007",
+                            "\b"
+                          ],
+                          "normalizeBooleans": false,
+                          "normalizeDoubles": true,
+                          "parseHeaderRow": true,
+                          "probableNumberOfRecords": 0,
+                          "quoteChar": "\"",
+                          "readAdditionalColumnsBehavior": "INSERT_IN_DATA_WARNING",
+                          "readDataTypeMismatchBehavior": "DISCARD_WARNING",
+                          "readMissingColumnsBehavior": "DISCARD_SILENT",
+                          "separator": ",",
+                          "skipRowsAfterHeader": 0,
+                          "skipRowsBeforeHeader": 0,
+                          "style": "excel",
+                          "writeDataTypeMismatchBehavior": "DISCARD_WARNING"
+                        },
+                        "type": "csv"
+                      },
+                      "originatingOptionId": "tsv-excel-header",
+                      "overwriteDestinationDataset": false,
+                      "selection": {
+                        "maxRecords": 100000,
+                        "ordering": {
+                          "enabled": false,
+                          "rules": []
+                        },
+                        "partitionSelectionMethod": "ALL",
+                        "samplingMethod": "FULL",
+                        "selectedPartitions": [],
+                        "targetRatio": 0.02
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "DASHBOARD_EXPORT",
+                  "params": {
+                    "dashboardId": "49oWPyU",
+                    "exportFormat": {
+                      "fileType": "PDF",
+                      "height": 1358,
+                      "orientation": "LANDSCAPE",
+                      "paperSize": "A4",
+                      "width": 1920
+                    }
+                  }
+                }
+              ],
+              "messageSource": "TEMPLATE_FILE",
+              "templateFormat": "FREEMARKER",
+              "templateName": "default.ftl"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "automationLocal": false,
+  "customFields": {}
+}

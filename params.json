@@ -1,0 +1,445 @@
+{
+  "dashboardAuthorizations": {
+    "allAuthorized": false,
+    "authorizations": [
+      {
+        "objectRef": {
+          "objectId": "0tV18riV",
+          "objectType": "SAVED_MODEL"
+        },
+        "modes": [
+          "READ"
+        ]
+      },
+      {
+        "objectRef": {
+          "objectId": "new_customer_data_scored",
+          "objectType": "DATASET"
+        },
+        "modes": [
+          "READ"
+        ]
+      },
+      {
+        "objectRef": {
+          "objectId": "metrics",
+          "objectType": "DATASET"
+        },
+        "modes": [
+          "READ"
+        ]
+      },
+      {
+        "objectRef": {
+          "objectId": "new_customer_data_scored_snow",
+          "objectType": "DATASET"
+        },
+        "modes": [
+          "READ"
+        ]
+      }
+    ]
+  },
+  "exposedObjects": {
+    "objects": [
+      {
+        "type": "DATASET",
+        "localName": "crm_last_year_sql",
+        "quickSharingEnabled": false,
+        "rules": [
+          {
+            "targetProject": "CLVFEATURESTORE",
+            "appearOnFlow": true
+          }
+        ]
+      },
+      {
+        "type": "DATASET",
+        "localName": "web_last_year",
+        "quickSharingEnabled": false,
+        "rules": [
+          {
+            "targetProject": "CREATEFEATURESTORE",
+            "appearOnFlow": true
+          },
+          {
+            "targetProject": "COPYOFCREATEFEATURESTORE",
+            "appearOnFlow": true
+          }
+        ]
+      },
+      {
+        "type": "DATASET",
+        "localName": "crm_last_year",
+        "quickSharingEnabled": false,
+        "rules": [
+          {
+            "targetProject": "CREATEFEATURESTORE",
+            "appearOnFlow": true
+          },
+          {
+            "targetProject": "COPYOFCREATEFEATURESTORE",
+            "appearOnFlow": true
+          },
+          {
+            "targetProject": "DBX_TESTING",
+            "appearOnFlow": true
+          }
+        ]
+      },
+      {
+        "type": "DATASET",
+        "localName": "customer_data_clean_python",
+        "quickSharingEnabled": true,
+        "rules": [
+          {
+            "targetProject": "AUTO_ML_DEMO",
+            "appearOnFlow": true
+          },
+          {
+            "targetProject": "CLV_GENAI",
+            "appearOnFlow": true
+          }
+        ]
+      }
+    ]
+  },
+  "projectType": "REGULAR",
+  "projectAppType": "APP_TEMPLATE",
+  "hasSetupSection": false,
+  "bundleContainerSettings": {
+    "remapping": {
+      "connections": [],
+      "codeEnvs": []
+    },
+    "codeEnvsBehavior": {
+      "envImportSpecificationMode": "SPECIFIED",
+      "importTimeMode": "INSTALL_IF_MISS"
+    }
+  },
+  "bundleExporterSettings": {
+    "exportOptions": {
+      "exportUploads": false,
+      "exportManagedFS": false,
+      "exportAnalysisModels": false,
+      "exportSavedModels": false,
+      "exportManagedFolders": false,
+      "exportModelEvaluationStores": false,
+      "exportProjectResources": true,
+      "exportLabelingTasks": false,
+      "exportAllInputDatasets": false,
+      "exportAllDatasets": false,
+      "exportAllInputManagedFolders": false,
+      "exportGitRepository": false,
+      "exportInsightsData": false,
+      "useManualPluginsInfo": false,
+      "exportSavedModelsRequiredVersions": false,
+      "exportNotebooksWithOutputs": true,
+      "includedDatasetsData": [
+        {
+          "name": "crm_last_year",
+          "type": "UploadedFiles"
+        },
+        {
+          "name": "web_last_year",
+          "type": "UploadedFiles"
+        },
+        {
+          "name": "target_feedback",
+          "type": "UploadedFiles"
+        }
+      ],
+      "includedSavedModels": [
+        {
+          "id": "0tV18riV",
+          "name": "Prediction (RANDOM_FOREST_CLASSIFICATION) on customer_data_clean_python"
+        }
+      ],
+      "includedModelEvaluationStores": [
+        {
+          "id": "BIEDMF0O",
+          "name": "Customer Lifetime Value"
+        }
+      ],
+      "includedManagedFolders": [
+        {
+          "id": "CacxT6xM",
+          "name": "experiment_tracking"
+        }
+      ],
+      "includedCodeStudios": [],
+      "includedLabelingTasks": [],
+      "shareAllInputDatasets": false,
+      "exportForeignObjectsReferences": true
+    }
+  },
+  "owner": "peter.pham@dataiku.com",
+  "permissionsVersion": "LEGACY",
+  "permissions": [],
+  "additionalDashboardUsers": {
+    "users": []
+  },
+  "tutorialProject": false,
+  "settings": {
+    "flowAnchorSourcesAndSinks": true,
+    "flowDisplaySettings": {
+      "zonesGraphRenderingAlgorithm": "DOT_OLDRANK",
+      "zonesGraphConnectZones": true,
+      "zonesGraphForJobs": true
+    },
+    "gitCommitMode": "AUTO",
+    "disableAutomaticTriggers": false,
+    "integrations": {
+      "integrations": []
+    },
+    "flowBuildSettings": {
+      "mergeSparkPipelines": false,
+      "pruneBeforeSparkPipelines": true,
+      "mergeSqlPipelines": false,
+      "pruneBeforeSqlPipelines": true
+    },
+    "sharingRequestsEnabled": "INHERIT",
+    "limitedVisibilityEnabled": "INHERIT",
+    "accessRequestsEnabled": "INHERIT",
+    "limitsSettings": {
+      "memSampleBytes": {
+        "soft": -1,
+        "hard": -1
+      },
+      "shakerMemTableBytes": {
+        "soft": -1,
+        "hard": -1
+      },
+      "attachmentBytes": {
+        "soft": -1,
+        "hard": -1
+      }
+    },
+    "relocationSettings": {
+      "sqlLikeRecipesInitializationMode": "RESOLVED_TABLE_REFERENCES"
+    },
+    "recipeEnginesPreferences": {
+      "forbiddenEngines": [],
+      "enginesPreferenceOrder": [],
+      "forbiddenByRecipeType": {},
+      "preferenceByRecipeType": {}
+    },
+    "codeEnvs": {
+      "python": {
+        "mode": "EXPLICIT_ENV",
+        "preventOverride": false,
+        "envName": "datascience"
+      },
+      "r": {
+        "mode": "INHERIT",
+        "preventOverride": false
+      },
+      "julia": {
+        "mode": "INHERIT",
+        "preventOverride": false
+      }
+    },
+    "container": {
+      "containerMode": "INHERIT"
+    },
+    "containerForManagedCodeWorkloads": {
+      "containerMode": "INHERIT"
+    },
+    "datasetsCreationSettings": {
+      "useGlobal": true,
+      "preferedStorageFormats": "CSV_ESCAPING_NOGZIP_FORHIVE,CSV_EXCEL_GZIP,PARQUET_HIVE",
+      "virtualizable": false,
+      "allowUploadsWithoutConnection": true
+    },
+    "hiveEngineCreationSettings": {
+      "useGlobal": true,
+      "executionEngine": "HIVECLI_LOCAL"
+    },
+    "sparkEngineCreationSettings": {
+      "useGlobal": true,
+      "executionEngine": "SPARK_SUBMIT",
+      "useGlobalMetastore": false
+    },
+    "impalaEngineCreationSettings": {
+      "useGlobal": true,
+      "streamMode": true
+    },
+    "wikiSettings": {
+      "promoted": false
+    },
+    "cluster": {
+      "clusterMode": "INHERIT"
+    },
+    "k8sCluster": {
+      "clusterMode": "INHERIT"
+    },
+    "virtualWebAppBackendSettings": {
+      "mode": "INHERIT",
+      "preventOverride": false,
+      "infra": {
+        "containerSelection": {
+          "containerMode": "INHERIT"
+        },
+        "overrideGlobalK8sExposition": false,
+        "exposition": {
+          "type": "local_process",
+          "params": {}
+        },
+        "scaling": {
+          "initialReplicas": 1,
+          "progressDeadlineSeconds": 600,
+          "hpa": false,
+          "hpaTargetCPUPercent": 0,
+          "hpaMetrics": [],
+          "hpaMinPods": 0,
+          "hpaMaxPods": 0,
+          "hpaAnnotations": []
+        },
+        "deploymentModifier": {
+          "config": {}
+        }
+      }
+    },
+    "dkuProperties": []
+  },
+  "name": "Customer Lifetime Value",
+  "imgPattern": 8,
+  "showInitials": false,
+  "metrics": {
+    "probes": [],
+    "engineConfig": {
+      "padRunsWithMetrics": false,
+      "hive": {
+        "active": true,
+        "extraConf": []
+      },
+      "basic": {},
+      "dss": {
+        "active": true,
+        "selection": {
+          "useMemTable": false,
+          "filter": {
+            "distinct": false,
+            "enabled": false
+          },
+          "partitionSelectionMethod": "ALL",
+          "latestPartitionsN": 1,
+          "ordering": {
+            "enabled": false,
+            "rules": []
+          },
+          "samplingMethod": "FULL",
+          "maxRecords": -1,
+          "targetRatio": 0.02,
+          "ascending": true,
+          "withinFirstN": -1,
+          "maxReadUncompressedBytes": -1
+        }
+      },
+      "sql": {
+        "active": true
+      },
+      "impala": {
+        "active": true
+      },
+      "spark": {
+        "active": true,
+        "extraConf": []
+      },
+      "python": {}
+    },
+    "displayedState": {
+      "columns": [],
+      "metrics": []
+    }
+  },
+  "metricsChecks": {
+    "runOnBuild": false,
+    "checks": [],
+    "displayedState": {
+      "checks": []
+    }
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1631196799347,
+    "extendedProperties": {}
+  },
+  "description": "In this project, we want to predict how much net profit each new customer is going to bring us in total. In other words, we\u0027re **looking to predict our Customer Lifetime Value!** \n\nTo do this, you\u0027ll learn how to combine data from several different sources, enrich it, and build and deploy a model on it.\n\n# Business goals\nThe goal is to build a model to predict how much money a customer will spend, based on his first interactions on our website.\nTo do this, we\u0027ll be using lots of types of data: web traffic data, and historical customer purchases, enriched with open data on countries (GDP).\n\n# How do we do this?\n\nWe have collected several different types of data from our historical customers:\n- Demographic information (age, gender, location)\n- Their actions on our website\n- The marketing campaigns they received\n- Their previous purchases\n\nIn addition, we\u0027re going to use data about their location to enrich our dataset.\n\nUsing a preparation step, we\u0027re going to start by joining the different data sources. Then we\u0027ll enrich that data in order to train the model. Then, we can copy the recipe and apply it to new data, so we can score new users using our model!\n\n# Explore the sample project\n\n- Start by taking a look at the flow to see the different steps of data preparation and machine learning that are needed for this project.\n\n\u003cp class\u003d\"text-center\"\u003e\n\u003ca href\u003d\"/projects/ONLINECUSTOMERLIFETIMEVALUE/flow/\"  class\u003d\"btn btn-datasets-color btn-cta-big-mod\"\u003e\u003ci class\u003d\"icon-dku-sample_project\" class\u003d\"btn-cta-big-mod-icon\" /\u003e\u0026nbsp;Flow\u003c/a\u003e\u003cbr/\u003e\u003cbr/\u003e\n\u003c/p\u003e\n\n- Take a look at how we clean and analyse historical data, and enrich it with geographic data: \n\n\u003cp class\u003d\"text-center\"\u003e\n\u003ca href\u003d\"/projects/ONLINECUSTOMERLIFETIMEVALUE/datasets/customer_data_clean/explore/\"  class\u003d\"btn btn-datasets-color btn-cta-big-mod\"\u003e\u003ci class\u003d\"icon-dku-sample_project\" class\u003d\"btn-cta-big-mod-icon\" /\u003e\u0026nbsp;Visual Preparation\u003c/a\u003e\u003cbr/\u003e\u003cbr/\u003e\n\u003c/p\u003e\n\n- Check out our random forest algorithm to predict how much revenue will come from each client.\n\n\u003cp class\u003d\"text-center\"\u003e\n\u003ca href\u003d\"/projects/ONLINECUSTOMERLIFETIMEVALUE/savedmodels/0tV18riV/versions/\"  class\u003d\"btn btn-datasets-color btn-cta-big-mod\"\u003e\u003ci class\u003d\"icon-dku-sample_project\" class\u003d\"btn-cta-big-mod-icon\" /\u003e\u0026nbsp;Model\u003c/a\u003e\u003cbr/\u003e\u003cbr/\u003e\n\u003c/p\u003e\n\n- Finally, check out the output dataset we got after we\u0027ve deployed the model on our new users. It\u0027s published on the dashboard! You can see the column predicting the lifetime value on the right.\n\n\u003cp class\u003d\"text-center\"\u003e\n\u003ca href\u003d\"/projects/ONLINECUSTOMERLIFETIMEVALUE/dashboards/49oWPyU_high-value-customer-modeling-results/view/sBoqYln\"  class\u003d\"btn btn-datasets-color btn-cta-big-mod\"\u003e\u003ci class\u003d\"icon-dku-sample_project\" class\u003d\"btn-cta-big-mod-icon\" /\u003e\u0026nbsp;Dashboard with the Scored Dataset\u003c/a\u003e\u003cbr/\u003e\u003cbr/\u003e\n\u003c/p\u003e\n\n\u003ca name\u003d\"MORE\"\u003e\n#Related content\n\u003c/a\u003e\n\nIf you want more resources (and we know you do), check these out: \n\n- our [machine learning course](https://academy.dataiku.com/machine-learning-basics) so you can build your first machine learning model in DSS on your own\n- the [churn sample project](/projects/DKU_CHURN/), where you\u0027ll see not only one but 2 models in one flow\n- [our tutorial on deploying a model as a scoring API](https://academy.dataiku.com/real-time-deployment) ",
+  "shortDesc": "The project *Online Customer Lifetime Value* was created by Administrator on Sep 09th 2021\nThe project *MODERNONLINECUSTOMERLIFETIMEVALUE* was copied from *ONLINECUSTOMERLIFETIMEVALUE* by Chris Helmus on Jul 05th 2022",
+  "tags": [
+    "demo",
+    "duplicated",
+    "imported"
+  ],
+  "customFields": {},
+  "checklists": {
+    "checklists": [
+      {
+        "title": "Your new project\u0027s Todo",
+        "createdOn": 0,
+        "items": [
+          {
+            "done": true,
+            "text": "Create the project",
+            "createdOn": 1631196799351,
+            "createdBy": "admin",
+            "stateChangedOn": 0
+          },
+          {
+            "done": true,
+            "text": "Set a project image (click on the color next to the project title)",
+            "createdOn": 1631196799351,
+            "createdBy": "admin",
+            "stateChangedOn": 0
+          },
+          {
+            "done": true,
+            "text": "Import your [first dataset](projects/ONLINECUSTOMERLIFETIMEVALUE/datasets/new/)",
+            "createdOn": 1631196799351,
+            "createdBy": "admin",
+            "stateChangedOn": 0
+          },
+          {
+            "done": true,
+            "text": "Organize your work by replacing this with a real todo",
+            "createdOn": 1631196799351,
+            "createdBy": "admin",
+            "stateChangedOn": 0
+          }
+        ]
+      },
+      {
+        "id": "ff93e6",
+        "title": "Todo list 2",
+        "createdOn": 0,
+        "items": [
+          {
+            "done": true,
+            "text": "Confirm data pipeline",
+            "createdOn": 1631540606278,
+            "createdBy": "admin",
+            "stateChangedOn": 0
+          },
+          {
+            "done": false,
+            "text": "Deploy and automate bundle",
+            "createdOn": 1631540627138,
+            "createdBy": "admin",
+            "stateChangedOn": 0
+          },
+          {
+            "done": false,
+            "text": "Deploy interactive API",
+            "createdOn": 1631540640973,
+            "createdBy": "admin",
+            "stateChangedOn": 0
+          }
+        ]
+      }
+    ]
+  }
+}

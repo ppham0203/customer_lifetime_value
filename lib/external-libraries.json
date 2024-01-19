@@ -1,0 +1,21 @@
+{
+  "gitReferences": {
+    "python": {
+      "remote": "git@github.com:charvey-helmus/dataiku.git",
+      "checkout": "refs/heads/main",
+      "remotePath": "",
+      "lastHash": "edefc9fd2f2031bc12f7d97117403e69de4b5926",
+      "conflictingFiles": [],
+      "resolvedFiles": [],
+      "faultyHash": "",
+      "isDirty": true
+    }
+  },
+  "pythonPath": [
+    "python"
+  ],
+  "rsrcPath": [
+    "R"
+  ],
+  "importLibrariesFromProjects": []
+}

@@ -1,0 +1,181 @@
+{
+  "checklists": {
+    "checklists": []
+  },
+  "creationTag": {
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1631894262532,
+    "versionNumber": 0
+  },
+  "customFields": {},
+  "dashboardCreationId": "co2xatT",
+  "listed": false,
+  "name": "age vs revenue on customer_data_clean_python",
+  "owner": "admin",
+  "params": {
+    "datasetSmartName": "customer_data_clean_python",
+    "def": {
+      "animationDimension": [],
+      "animationFrameDuration": 3000,
+      "animationRepeat": true,
+      "axis1LogScale": false,
+      "axis2LogScale": false,
+      "boxplotBreakdownDim": [],
+      "boxplotValue": [],
+      "bubblesOptions": {
+        "defaultRadius": 5.0,
+        "singleShape": "FILLED_CIRCLE"
+      },
+      "chartHeight": 200,
+      "colorMeasure": [],
+      "colorOptions": {
+        "ccScaleMode": "NORMAL",
+        "colorPalette": "default",
+        "customPalette": {
+          "colors": [],
+          "fixedValues": false,
+          "id": "__dku_custom__",
+          "name": "Custom Palette",
+          "values": []
+        },
+        "numQuantizeSteps": 5,
+        "paletteMiddleValue": 0.0,
+        "paletteType": "CONTINUOUS",
+        "quantizationMode": "NONE",
+        "singleColor": "#2678B1",
+        "transparency": 0.5
+      },
+      "computeMode": "NORMAL",
+      "disableSafetyLimits": false,
+      "facetDimension": [],
+      "fillOpacity": 0.6,
+      "filters": [],
+      "genericDimension0": [],
+      "genericDimension1": [],
+      "genericMeasures": [],
+      "geometry": [],
+      "groupDimension": [],
+      "hexbinNumber": 20,
+      "hexbinRadius": 20,
+      "hexbinRadiusMode": "NUM_HEXAGONS",
+      "includeZero": true,
+      "legendPlacement": "OUTER_RIGHT",
+      "mapGridOptions": {
+        "gridLatDeg": 0.5,
+        "gridLonDeg": 0.5
+      },
+      "mapOptions": {
+        "lockSquareGrid": false,
+        "tilesLayer": "cartodb-positron"
+      },
+      "multiTooltips": false,
+      "name": "age vs revenue",
+      "pieOptions": {
+        "donutHoleSize": 54.0
+      },
+      "scatterOptions": {
+        "equalScales": false,
+        "identityLine": false
+      },
+      "showInChartLabels": true,
+      "showInChartValues": false,
+      "showLegend": true,
+      "showXAxis": false,
+      "showXAxisLabel": true,
+      "showYAxisLabel": true,
+      "singleXAxis": true,
+      "sizeMeasure": [],
+      "smoothing": true,
+      "strokeWidth": 1,
+      "thumbnailData": "data:image/png;base64,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",
+      "tooltipMeasures": [],
+      "type": "scatter",
+      "uaColor": [
+        {
+          "adminLevel": 0,
+          "column": "High Revenue",
+          "isA": "ua",
+          "treatAsAlphanum": false,
+          "type": "ALPHANUM"
+        }
+      ],
+      "uaShape": [],
+      "uaSize": [],
+      "uaTooltip": [],
+      "uaXDimension": [
+        {
+          "column": "age",
+          "isA": "ua",
+          "sortAscending": false,
+          "sortBy": "NATURAL",
+          "treatAsAlphanum": false,
+          "type": "NUMERICAL"
+        }
+      ],
+      "uaYDimension": [
+        {
+          "column": "revenue",
+          "isA": "ua",
+          "sortAscending": false,
+          "sortBy": "NATURAL",
+          "treatAsAlphanum": false,
+          "type": "NUMERICAL"
+        }
+      ],
+      "useLiveProcessingIfAvailable": true,
+      "userEditedName": false,
+      "variant": "normal",
+      "xAxisFormatting": {
+        "isLogScale": false,
+        "showAxisTitle": true
+      },
+      "xAxisMode": "NORMAL",
+      "xDimension": [],
+      "xMeasure": [],
+      "yAxesFormatting": [
+        {
+          "isLogScale": false,
+          "showAxisTitle": true
+        }
+      ],
+      "yAxisMode": "NORMAL",
+      "yDimension": [],
+      "yMeasure": []
+    },
+    "engineType": "LINO",
+    "maxDataBytes": 157286400,
+    "refreshableSelection": {
+      "_refreshTrigger": 1,
+      "autoRefreshSample": false,
+      "selection": {
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "latestPartitionsN": 1,
+        "maxReadUncompressedBytes": -1,
+        "maxRecords": -1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "partitionSelectionMethod": "ALL",
+        "samplingMethod": "FULL",
+        "targetRatio": 0.02,
+        "useMemTable": false,
+        "withinFirstN": -1
+      }
+    }
+  },
+  "tags": [],
+  "type": "chart",
+  "versionTag": {
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1631894262532,
+    "versionNumber": 0
+  }
+}

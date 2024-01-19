@@ -1,0 +1,26 @@
+{
+  "name": "vscode_1",
+  "libName": "vscode_1",
+  "templateId": "vs_code",
+  "params": {},
+  "owner": "chris.helmus@dataiku.com",
+  "versionTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1686606267581
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1686606267581
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

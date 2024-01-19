@@ -1,0 +1,36 @@
+{
+  "name": "Model Train - Code",
+  "color": "#465A64",
+  "items": [
+    {
+      "objectId": "split_customer_data_clean_python",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "customer_data_train",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "customer_data_test",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "recipe_from_notebook_clv_train",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "CacxT6xM",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "k8TTMGGi",
+      "objectType": "SAVED_MODEL"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

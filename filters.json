@@ -1,0 +1,59 @@
+{
+  "filters": [
+    {
+      "isAdvanced": false,
+      "scope": "PRIVATE",
+      "isDirty": false,
+      "creatorLogin": "admin",
+      "id": "f475eed2d757351b8fe826bdd16ca86a721837e0245026ef6762a27e03989ec9565ae15cfcdcb357d4936070e94cd47e13c0869c661bf99d1e9e79f240da972f",
+      "name": "Training",
+      "creationDate": 1631199345866,
+      "structuredFlowObjectFilter": {
+        "tags": [],
+        "types": [],
+        "creator": [],
+        "customCreationDateRange": {
+          "from": 0,
+          "to": 0
+        },
+        "customModificationDateRange": {
+          "from": 0,
+          "to": 0
+        },
+        "downstreamPredecessorsIds": [],
+        "datasetTypes": [],
+        "recipeTypes": []
+      },
+      "advancedFilter": "",
+      "removeFadedElements": false,
+      "query": ""
+    },
+    {
+      "isAdvanced": false,
+      "scope": "PRIVATE",
+      "isDirty": true,
+      "creatorLogin": "admin",
+      "id": "046618d960e67bb7db0aae6d8ddbcf59d8f360f71a54933423fb7b313c1f4358f6d99ae7a1c78ae4e9ff1c0f1d862d2fb849ccb709f482c6a35721d9bbeaabbf",
+      "creationDate": 1651168613831,
+      "derivedFromFilterId": "-1",
+      "structuredFlowObjectFilter": {
+        "tags": [],
+        "types": [],
+        "creator": [],
+        "customCreationDateRange": {
+          "from": 0,
+          "to": 0
+        },
+        "customModificationDateRange": {
+          "from": 0,
+          "to": 0
+        },
+        "downstreamPredecessorsIds": [],
+        "datasetTypes": [],
+        "recipeTypes": []
+      },
+      "removeFadedElements": false,
+      "query": ""
+    }
+  ]
+}

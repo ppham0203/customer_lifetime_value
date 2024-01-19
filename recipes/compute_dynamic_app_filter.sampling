@@ -1,0 +1,26 @@
+{
+  "uiData": {
+    "mode": "CUSTOM",
+    "$latestOperator": "\u0026\u0026",
+    "$filterOptions": "CUSTOM",
+    "conditions": [
+      {
+        "input": "campaign",
+        "col": "pages_visited",
+        "$showList": false,
+        "num": 0,
+        "operator": "true"
+      }
+    ]
+  },
+  "expression": "and(\npages_visited\u003e\u003dvariables[\"pages_visited\"],\nCountry\u003d\u003dvariables[\"country\"],\nrevenue\u003e\u003d variables[\"revenue_value\"])",
+  "$status": {
+    "validated": true,
+    "fullyTranslated": true,
+    "ok": true,
+    "message": "Incorrect formula: \u0027and(\npages_visited\u003e\u003dvariables[\"pages_visited\"],\nCountry\u003d\u003dvariables[\"country\"],\nrevenue\u003e\u003d variables[\"revenue_value\"]\u0027 : Missing \u0027)\u0027 (Parsing error at offset 115)",
+    "sql": "\"pages_visited\" \u003e\u003d 1.0 AND (\"Country\" \u003d \u0027United States\u0027) AND \"revenue\" \u003e\u003d 100.0"
+  },
+  "distinct": false,
+  "enabled": true
+}

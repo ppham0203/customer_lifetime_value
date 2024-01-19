@@ -1,0 +1,295 @@
+{
+  "checklists": {
+    "checklists": []
+  },
+  "creationTag": {
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1631894103147,
+    "versionNumber": 0
+  },
+  "customFields": {},
+  "listed": true,
+  "name": "Customer Analysis",
+  "owner": "admin",
+  "pages": [
+    {
+      "enableCrossFilters": true,
+      "grid": {
+        "tiles": [
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 3,
+              "left": 4,
+              "top": 2,
+              "width": 5
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "CeGbGvG",
+            "insightType": "dataset_table",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "showCustomFields": true,
+              "showDescription": true,
+              "showMeaning": false,
+              "showName": true,
+              "showProgressBar": false,
+              "showStorageType": false,
+              "viewKind": "EXPLORE"
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 5,
+              "left": 0,
+              "top": 0,
+              "width": 4
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "59r9h5S",
+            "insightType": "chart",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "autoPlayAnimation": true,
+              "showLegend": false,
+              "showTooltips": true,
+              "showXAxis": true,
+              "showYAxis": true
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 2,
+              "left": 4,
+              "top": 0,
+              "width": 5
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "QhnTKy5",
+            "insightType": "chart",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "autoPlayAnimation": true,
+              "showLegend": false,
+              "showTooltips": true,
+              "showXAxis": true,
+              "showYAxis": true
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 4,
+              "left": 9,
+              "top": 1,
+              "width": 3
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "ut9jxvI",
+            "insightType": "chart",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "autoPlayAnimation": true,
+              "showLegend": false,
+              "showTooltips": true,
+              "showXAxis": true,
+              "showYAxis": true
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 1,
+              "left": 9,
+              "top": 0,
+              "width": 3
+            },
+            "clickAction": "DO_NOTHING",
+            "displayMode": "INSIGHT",
+            "insightId": "qLeTH6K",
+            "insightType": "filters",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "copySelectionFromScript": true,
+              "engineType": "LINO",
+              "filters": [
+                {
+                  "allValuesInSample": false,
+                  "column": "Country",
+                  "columnType": "ALPHANUM",
+                  "excludeOtherValues": true,
+                  "explicitExclude": false,
+                  "filterSelectionType": "MULTI_SELECT",
+                  "filterType": "ALPHANUM_FACET",
+                  "id": "Pxn95bkVLnMPkbL6",
+                  "isA": "filter",
+                  "isAGlobalFilter": true,
+                  "selectedValues": {
+                    "Algeria": true,
+                    "Argentina": true,
+                    "Armenia": true,
+                    "Australia": true,
+                    "Austria": true,
+                    "Bahrain": true,
+                    "Bangladesh": true,
+                    "Belarus": true,
+                    "Belgium": true,
+                    "Bolivia": true,
+                    "Bosnia and Herzegovina": true,
+                    "Botswana": true,
+                    "Brazil": true,
+                    "Bulgaria": true,
+                    "Cameroon": true,
+                    "Canada": true,
+                    "Chile": true,
+                    "China": true,
+                    "Colombia": true,
+                    "Costa Rica": true,
+                    "Croatia": true,
+                    "Cyprus": true,
+                    "Denmark": true,
+                    "Djibouti": true,
+                    "Dominican Republic": true,
+                    "Ecuador": true,
+                    "Egypt": true,
+                    "El Salvador": true,
+                    "Estonia": true,
+                    "Finland": true,
+                    "France": true,
+                    "Georgia": true,
+                    "Germany": true,
+                    "Ghana": true,
+                    "Greece": true,
+                    "Guatemala": true,
+                    "Guyana": true,
+                    "Haiti": true,
+                    "Honduras": true,
+                    "Hong Kong": true,
+                    "Hungary": true,
+                    "Iceland": true,
+                    "India": true,
+                    "Indonesia": true,
+                    "Iran": true,
+                    "Ireland": true,
+                    "Israel": true,
+                    "Italy": true,
+                    "Japan": true,
+                    "Kazakhstan": true,
+                    "Kenya": true,
+                    "Kuwait": true,
+                    "Latvia": true,
+                    "Lebanon": true,
+                    "Liberia": true,
+                    "Libya": true,
+                    "Luxembourg": true,
+                    "Malaysia": true,
+                    "Maldives": true,
+                    "Malta": true,
+                    "Mexico": true,
+                    "Montenegro": true,
+                    "Morocco": true,
+                    "Mozambique": true,
+                    "Netherlands": true,
+                    "New Zealand": true,
+                    "Nigeria": true,
+                    "Norway": true,
+                    "Oman": true,
+                    "Pakistan": true,
+                    "Panama": true,
+                    "Paraguay": true,
+                    "Peru": true,
+                    "Philippines": true,
+                    "Poland": true,
+                    "Portugal": true,
+                    "Qatar": true,
+                    "Romania": true,
+                    "Russia": true,
+                    "Saudi Arabia": true,
+                    "Senegal": true,
+                    "Serbia": true,
+                    "Seychelles": true,
+                    "Singapore": true,
+                    "Slovakia": true,
+                    "Slovenia": true,
+                    "South Africa": true,
+                    "South Korea": true,
+                    "Spain": true,
+                    "Suriname": true,
+                    "Sweden": true,
+                    "Switzerland": true,
+                    "Taiwan": true,
+                    "Tanzania": true,
+                    "Thailand": true,
+                    "Trinidad and Tobago": true,
+                    "Tunisia": true,
+                    "Turkey": true,
+                    "Ukraine": true,
+                    "United Arab Emirates": true,
+                    "United Kingdom": true,
+                    "United States": true,
+                    "Uruguay": true,
+                    "Venezuela": true,
+                    "Vietnam": true
+                  }
+                }
+              ],
+              "refreshableSelection": {
+                "_refreshTrigger": 0,
+                "autoRefreshSample": false,
+                "selection": {
+                  "filter": {
+                    "distinct": false,
+                    "enabled": false
+                  },
+                  "latestPartitionsN": 1,
+                  "maxReadUncompressedBytes": -1,
+                  "maxRecords": 10000,
+                  "ordering": {
+                    "enabled": false,
+                    "rules": []
+                  },
+                  "partitionSelectionMethod": "ALL",
+                  "samplingMethod": "HEAD_SEQUENTIAL",
+                  "targetRatio": 0.02,
+                  "useMemTable": false,
+                  "withinFirstN": -1
+                }
+              }
+            },
+            "tileType": "INSIGHT",
+            "title": "COUNTRY FILTER"
+          }
+        ]
+      },
+      "id": "9rNJLEi",
+      "showTitle": true,
+      "title": "Customers + Revenue"
+    }
+  ],
+  "showGrid": true,
+  "tags": [],
+  "versionTag": {
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1643202635633,
+    "versionNumber": 23
+  }
+}

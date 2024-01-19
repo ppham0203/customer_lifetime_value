@@ -1,0 +1,98 @@
+{
+  "type": "dataset_table",
+  "params": {
+    "datasetSmartName": "new_customer_data_scored",
+    "shakerScript": {
+      "steps": [],
+      "maxProcessedMemTableBytes": -1,
+      "columnsSelection": {
+        "mode": "ALL"
+      },
+      "columnWidthsByName": {
+        "customer_id": 127,
+        "age": 100,
+        "price_first_item_purchased": 210,
+        "gender": 100,
+        "ip": 120,
+        "Country": 141,
+        "pages_visited": 113,
+        "campaign": 100,
+        "GDP_per_cap": 100,
+        "proba_false": 155,
+        "proba_true": 155,
+        "prediction": 100,
+        "explanations": 300
+      },
+      "coloring": {
+        "scheme": "INDIVIDUAL_COLUMNS_VALUES",
+        "individualColumns": [
+          "proba_true"
+        ],
+        "valueColoringMode": "HASH"
+      },
+      "sorting": [
+        {
+          "column": "proba_true",
+          "ascending": false
+        }
+      ],
+      "analysisColumnData": {},
+      "explorationSampling": {
+        "selection": {
+          "maxStoredBytes": -1,
+          "timeout": -1,
+          "filter": {
+            "distinct": false,
+            "enabled": false
+          },
+          "partitionSelectionMethod": "ALL",
+          "latestPartitionsN": 1,
+          "ordering": {
+            "enabled": false,
+            "rules": []
+          },
+          "samplingMethod": "HEAD_SEQUENTIAL",
+          "maxRecords": 10000,
+          "targetRatio": 0.02,
+          "withinFirstN": -1,
+          "maxReadUncompressedBytes": -1
+        },
+        "autoRefreshSample": false,
+        "_refreshTrigger": 0
+      },
+      "vizSampling": {
+        "autoRefreshSample": false,
+        "_refreshTrigger": 0
+      },
+      "exploreUIParams": {
+        "autoRefresh": true
+      },
+      "globalSearchQuery": "",
+      "explorationFilters": [],
+      "previewMode": "ALL_ROWS"
+    }
+  },
+  "owner": "admin",
+  "listed": false,
+  "name": "new_customer_data_scored",
+  "dashboardCreationId": "49oWPyU",
+  "versionTag": {
+    "versionNumber": 1,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1632147645415
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1632147549329
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

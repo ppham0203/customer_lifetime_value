@@ -1,0 +1,214 @@
+{
+  "computedColumns": [
+    {
+      "expr": "if(prediction_feedback==1,'true','false')",
+      "mode": "GREL",
+      "name": "High_Revenue",
+      "type": "boolean"
+    }
+  ],
+  "enableAutoCastInJoinConditions": false,
+  "engineParams": {
+    "hive": {
+      "addDkuUdf": false,
+      "executionEngine": "HIVESERVER2",
+      "hiveconf": [],
+      "inheritConf": "default",
+      "skipPrerunValidate": false
+    },
+    "impala": {
+      "forceStreamMode": true
+    },
+    "lowerCaseSchemaIfEngineRequiresIt": true,
+    "sparkSQL": {
+      "executionEngine": "SPARK_SUBMIT",
+      "overwriteOutputSchema": false,
+      "pipelineAllowMerge": true,
+      "pipelineAllowStart": true,
+      "readParams": {
+        "autoModeRepartitionInto": 10,
+        "map": {},
+        "mode": "AUTO"
+      },
+      "skipPrerunValidate": false,
+      "sparkConfig": {
+        "conf": [],
+        "inheritConf": "default"
+      },
+      "useGlobalMetastore": false
+    },
+    "sqlPipelineParams": {
+      "pipelineAllowMerge": true,
+      "pipelineAllowStart": true
+    }
+  },
+  "joins": [
+    {
+      "conditionsMode": "AND",
+      "on": [
+        {
+          "caseInsensitive": false,
+          "column1": {
+            "name": "customer_id",
+            "table": 0
+          },
+          "column2": {
+            "name": "customer_id",
+            "table": 1
+          },
+          "dateDiffUnit": "DAY",
+          "maxDistance": 0,
+          "maxMatches": 1,
+          "normalizeText": false,
+          "strict": false,
+          "type": "EQ"
+        }
+      ],
+      "outerJoinOnTheLeft": true,
+      "rightLimit": {
+        "decisionColumn": {},
+        "enabled": false,
+        "maxMatches": 1,
+        "type": "KEEP_LARGEST"
+      },
+      "table1": 0,
+      "table2": 1,
+      "type": "LEFT"
+    }
+  ],
+  "postFilter": {
+    "$status": {
+      "schema": {
+        "columns": [
+          {
+            "name": "customer_id",
+            "type": "string"
+          },
+          {
+            "name": "ip",
+            "type": "string"
+          },
+          {
+            "name": "prediction_feedback",
+            "type": "string"
+          },
+          {
+            "maxLength": 4194304,
+            "name": "age",
+            "originalType": "VARCHAR",
+            "type": "string"
+          },
+          {
+            "maxLength": 4194304,
+            "name": "price_first_item_purchased",
+            "originalType": "VARCHAR",
+            "type": "string"
+          },
+          {
+            "maxLength": 4194304,
+            "name": "gender",
+            "originalType": "VARCHAR",
+            "type": "string"
+          },
+          {
+            "maxLength": 4194304,
+            "name": "Country",
+            "originalType": "VARCHAR",
+            "type": "string"
+          },
+          {
+            "maxLength": 4194304,
+            "name": "pages_visited",
+            "originalType": "VARCHAR",
+            "type": "string"
+          },
+          {
+            "maxLength": 4194304,
+            "name": "campaign",
+            "originalType": "VARCHAR",
+            "type": "string"
+          },
+          {
+            "maxLength": 4194304,
+            "name": "GDP_per_cap",
+            "originalType": "VARCHAR",
+            "type": "string"
+          },
+          {
+            "name": "High_Revenue",
+            "type": "boolean"
+          }
+        ],
+        "userModified": false
+      }
+    }
+  },
+  "selectedColumns": [
+    {
+      "name": "customer_id",
+      "table": 0,
+      "type": "string"
+    },
+    {
+      "name": "ip",
+      "table": 0,
+      "type": "string"
+    },
+    {
+      "name": "prediction_feedback",
+      "table": 0,
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "price_first_item_purchased",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "gender",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "Country",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "pages_visited",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "campaign",
+      "table": 1,
+      "type": "string"
+    },
+    {
+      "name": "GDP_per_cap",
+      "table": 1,
+      "type": "string"
+    }
+  ],
+  "virtualInputs": [
+    {
+      "autoSelectColumns": false,
+      "computedColumns": [],
+      "index": 0,
+      "outputColumnsSelectionMode": "MANUAL",
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      }
+    },
+    {
+      "index": 1,
+      "outputColumnsSelectionMode": "MANUAL"
+    }
+  ]
+}

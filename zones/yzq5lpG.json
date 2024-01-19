@@ -1,0 +1,24 @@
+{
+  "name": "New Customer Scoring",
+  "color": "#465A64",
+  "items": [
+    {
+      "objectId": "score_new_customer_data",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "new_customer_data_scored_snow",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "new_customer_data_sf",
+      "objectType": "DATASET"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

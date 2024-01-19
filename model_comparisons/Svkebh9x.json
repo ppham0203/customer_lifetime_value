@@ -1,0 +1,65 @@
+{
+    "displayName": "Champion vs Challenger",
+    "predictionType": "BINARY_CLASSIFICATION",
+    "comparedModels": [
+        {
+            "smartId": "S-*-0tV18riV-1632785321774",
+            "isSelected": true,
+            "color": "#1f77b4",
+            "isChampion": false
+        },
+        {
+            "smartId": "S-*-0tV18riV-1634763503172",
+            "isSelected": true,
+            "color": "#0eb7ff",
+            "isChampion": false
+        }
+    ],
+    "displayParams": {
+        "displayedMetrics": [
+            "ACCURACY",
+            "PRECISION",
+            "RECALL",
+            "F1",
+            "COST_MATRIX",
+            "LOG_LOSS",
+            "ROC_AUC",
+            "CALIBRATION_LOSS",
+            "CUMULATIVE_LIFT"
+        ],
+        "predictionType": "BINARY_CLASSIFICATION",
+        "pinnedMetrics": [
+            "ROC_AUC"
+        ],
+        "xLabel": "model:date",
+        "yLabels": [
+            "model:algorithm"
+        ],
+        "alsoDisplayedLabels": [],
+        "barLabels": [],
+        "graphStyle": "BAR",
+        "sortColumn": "",
+        "sortDescending": false,
+        "showConfidenceIntervals": true,
+        "disabledMERunIds": []
+    },
+    "versionTag": {
+        "versionNumber": 4,
+        "lastModifiedBy": {
+            "login": "admin"
+        },
+        "lastModifiedOn": 1654109276979
+    },
+    "creationTag": {
+        "versionNumber": 0,
+        "lastModifiedBy": {
+            "login": "admin"
+        },
+        "lastModifiedOn": 1637011347335
+    },
+    "tags": [],
+    "customFields": {},
+    "checklists": {
+        "checklists": []
+    }
+}

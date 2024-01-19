@@ -1,0 +1,66 @@
+{
+  "authMethod": "PUBLIC", 
+  "authRealm": {
+    "queryKeys": []
+  }, 
+  "checklists": {
+    "checklists": []
+  }, 
+  "creationTag": {
+    "lastModifiedBy": {
+      "login": "admin"
+    }, 
+    "lastModifiedOn": 1643054694051, 
+    "versionNumber": 0
+  }, 
+  "customFields": {}, 
+  "endpoints": [
+    {
+      "auditPostEnrichData": false, 
+      "enrichMapping": [], 
+      "healthCheckQueries": [], 
+      "id": "clv_gb", 
+      "individualExplanationParams": {
+        "drawInScoredSet": false, 
+        "method": "ICE", 
+        "nbExplanations": 3, 
+        "shapleyBackgroundSize": 100, 
+        "subChunkSize": 5000
+      }, 
+      "mlFlowOutputStyle": "RAW", 
+      "modelRef": "0tV18riV", 
+      "outputExplanations": false, 
+      "returnPostEnrichData": false, 
+      "testQueries": [
+        {
+          "name": "new_customer_data #1", 
+          "q": {
+            "features": {
+              "Country": "China", 
+              "GDP_per_cap": "9055", 
+              "age": "30", 
+              "campaign": "false", 
+              "customer_id": "b1d0027f46a", 
+              "gender": "M", 
+              "ip": "101.245.239.252", 
+              "pages_visited": "9.0", 
+              "price_first_item_purchased": "117.0"
+            }
+          }
+        }
+      ], 
+      "type": "STD_PREDICTION", 
+      "useJava": true
+    }
+  ], 
+  "name": "clv_score_test", 
+  "publicAccess": true, 
+  "tags": [], 
+  "versionTag": {
+    "lastModifiedBy": {
+      "login": "admin"
+    }, 
+    "lastModifiedOn": 1643059492261, 
+    "versionNumber": 8
+  }
+}

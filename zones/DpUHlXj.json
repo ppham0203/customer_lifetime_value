@@ -1,0 +1,28 @@
+{
+  "name": "BI Export + App",
+  "color": "#087ABF",
+  "items": [
+    {
+      "objectId": "compute_Fk6lHvfo",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "Fk6lHvfo",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_dynamic_app_filter",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "dynamic_app_filter",
+      "objectType": "DATASET"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

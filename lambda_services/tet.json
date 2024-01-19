@@ -1,0 +1,37 @@
+{
+  "endpoints": [],
+  "authMethod": "PUBLIC",
+  "authRealm": {
+    "queryKeys": []
+  },
+  "oauth2Config": {
+    "keysFormat": "JWKS_URI",
+    "jwkUriConnectTimeout": 500,
+    "jwkUriReadTimeout": 500,
+    "jwkUriSizeLimit": 51200,
+    "scopeClaimFormat": "STRING",
+    "scopeClaimKey": "scope"
+  },
+  "deploymentMonitoring": [],
+  "versionTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1699471878339,
+    "extendedProperties": {}
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1699471878339,
+    "extendedProperties": {}
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

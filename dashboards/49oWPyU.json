@@ -1,0 +1,519 @@
+{
+  "checklists": {
+    "checklists": []
+  },
+  "creationTag": {
+    "extendedProperties": {},
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1631196799355,
+    "versionNumber": 0
+  },
+  "customFields": {},
+  "description": "Visually explore latest active model results",
+  "listed": true,
+  "name": "High Value Customer Modeling Results",
+  "owner": "admin",
+  "pages": [
+    {
+      "enableCrossFilters": true,
+      "grid": {
+        "tiles": [
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 8,
+              "left": 0,
+              "top": 0,
+              "width": 5
+            },
+            "clickAction": "DO_NOTHING",
+            "displayMode": "INSIGHT",
+            "insightId": "CYsAd0M",
+            "insightType": "saved-model_report",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "advancedOptions": {
+                "featureImportance": {
+                  "graphType": "absoluteFeatureImportance",
+                  "importanceDisplayMode": "variableImportance"
+                },
+                "interactiveScoring": {
+                  "featuresOrder": [
+                    "GDP_per_cap",
+                    "price_first_item_purchased",
+                    "Country",
+                    "campaign",
+                    "age",
+                    "pages_visited",
+                    "gender"
+                  ]
+                }
+              },
+              "displayMode": "bc_confusion"
+            },
+            "tileType": "INSIGHT",
+            "title": "Confusion Matrix"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 3,
+              "left": 5,
+              "top": 0,
+              "width": 7
+            },
+            "clickAction": "DO_NOTHING",
+            "displayMode": "INSIGHT",
+            "insightId": "szX1Z3V",
+            "insightType": "saved-model_report",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "advancedOptions": {
+                "featureImportance": {
+                  "graphType": "absoluteFeatureImportance",
+                  "importanceDisplayMode": "variableImportance"
+                },
+                "interactiveScoring": {
+                  "featuresOrder": [
+                    "GDP_per_cap",
+                    "price_first_item_purchased",
+                    "Country",
+                    "campaign",
+                    "age",
+                    "pages_visited",
+                    "gender"
+                  ]
+                }
+              },
+              "displayMode": "feature_importance"
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 5,
+              "left": 5,
+              "top": 3,
+              "width": 7
+            },
+            "clickAction": "DO_NOTHING",
+            "displayMode": "INSIGHT",
+            "insightId": "bX9APyc",
+            "insightType": "saved-model_report",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "advancedOptions": {
+                "featureImportance": {
+                  "graphType": "absoluteFeatureImportance",
+                  "importanceDisplayMode": "variableImportance"
+                },
+                "interactiveScoring": {
+                  "featuresOrder": [
+                    "price_first_item_purchased",
+                    "Country",
+                    "GDP_per_cap",
+                    "campaign",
+                    "age",
+                    "pages_visited",
+                    "gender"
+                  ]
+                }
+              },
+              "displayMode": "interactive_scoring"
+            },
+            "tileType": "INSIGHT"
+          }
+        ]
+      },
+      "id": "sBoqYln",
+      "showTitle": true,
+      "title": "Model Performance"
+    },
+    {
+      "enableCrossFilters": true,
+      "grid": {
+        "tiles": [
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 5,
+              "left": 0,
+              "top": 0,
+              "width": 12
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "OwITdMX",
+            "insightType": "dataset_table",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "showCustomFields": true,
+              "showDescription": true,
+              "showMeaning": false,
+              "showName": true,
+              "showProgressBar": false,
+              "showStorageType": false,
+              "viewKind": "EXPLORE"
+            },
+            "tileType": "INSIGHT"
+          }
+        ]
+      },
+      "id": "KxS5VpG",
+      "showTitle": true,
+      "title": "Top Customers to Target"
+    },
+    {
+      "enableCrossFilters": true,
+      "grid": {
+        "tiles": [
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 2,
+              "left": 6,
+              "top": 0,
+              "width": 6
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "uZE5pDi",
+            "insightType": "chart",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "autoPlayAnimation": true,
+              "inheritLegendPlacement": true,
+              "legendPlacement": "OUTER_RIGHT",
+              "showLegend": false,
+              "showTooltips": true,
+              "showXAxis": true,
+              "showYAxis": true
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 2,
+              "left": 6,
+              "top": 4,
+              "width": 6
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "HCuUONe",
+            "insightType": "chart",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "autoPlayAnimation": true,
+              "inheritLegendPlacement": true,
+              "legendPlacement": "OUTER_RIGHT",
+              "showLegend": false,
+              "showTooltips": true,
+              "showXAxis": true,
+              "showYAxis": true
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 2,
+              "left": 6,
+              "top": 2,
+              "width": 6
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "a5FxE7G",
+            "insightType": "chart",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "autoPlayAnimation": true,
+              "inheritLegendPlacement": true,
+              "legendPlacement": "OUTER_RIGHT",
+              "showLegend": false,
+              "showTooltips": true,
+              "showXAxis": true,
+              "showYAxis": true
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 2,
+              "left": 0,
+              "top": 0,
+              "width": 6
+            },
+            "clickAction": "DO_NOTHING",
+            "displayMode": "INSIGHT",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "NO",
+            "tileParams": {
+              "isTransparent": false,
+              "text": "### Model Monitoring\nGround-truth data is collected periodically and used to evaluate the active model in production\nRefer to the table on the left for initial model performance at training",
+              "textAlign": "LEFT"
+            },
+            "tileType": "TEXT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 4,
+              "left": 0,
+              "top": 2,
+              "width": 6
+            },
+            "clickAction": "DO_NOTHING",
+            "displayMode": "INSIGHT",
+            "insightId": "jf9JNSB",
+            "insightType": "saved-model_report",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "advancedOptions": {
+                "interactiveScoring": {
+                  "featuresOrder": [
+                    "GDP_per_cap",
+                    "Country",
+                    "price_first_item_purchased",
+                    "campaign",
+                    "age",
+                    "pages_visited",
+                    "gender"
+                  ]
+                }
+              },
+              "displayMode": "performance-metrics"
+            },
+            "tileType": "INSIGHT",
+            "title": "Initial Model"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 1,
+              "left": 0,
+              "top": 6,
+              "width": 3
+            },
+            "clickAction": "DO_NOTHING",
+            "displayMode": "INSIGHT",
+            "insightId": "5bcACVM",
+            "insightType": "filters",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "engineType": "LINO",
+              "filters": [
+                {
+                  "active": true,
+                  "allValuesInSample": false,
+                  "column": "date",
+                  "columnType": "DATE",
+                  "dateFilterType": "RANGE",
+                  "excludeOtherValues": true,
+                  "explicitExclude": false,
+                  "filterSelectionType": "RANGE_OF_VALUES",
+                  "filterType": "DATE_FACET",
+                  "id": "1700167890053_92",
+                  "isA": "filter",
+                  "isAGlobalFilter": true,
+                  "maxValue": 1672755743000.0,
+                  "minValue": 1657034858000.0,
+                  "timezone": "UTC"
+                }
+              ],
+              "refreshableSelection": {
+                "_refreshTrigger": 0,
+                "autoRefreshSample": false,
+                "selection": {
+                  "ascending": true,
+                  "filter": {
+                    "distinct": false,
+                    "enabled": false
+                  },
+                  "latestPartitionsN": 1,
+                  "maxReadUncompressedBytes": -1,
+                  "maxRecords": 10000,
+                  "ordering": {
+                    "enabled": false,
+                    "rules": []
+                  },
+                  "partitionSelectionMethod": "ALL",
+                  "samplingMethod": "HEAD_SEQUENTIAL",
+                  "targetRatio": 0.02,
+                  "useMemTable": false,
+                  "withinFirstN": -1
+                }
+              }
+            },
+            "tileType": "INSIGHT"
+          }
+        ]
+      },
+      "id": "ojHZq7O",
+      "showTitle": false,
+      "title": "Model Monitoring"
+    },
+    {
+      "enableCrossFilters": true,
+      "grid": {
+        "tiles": [
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 2,
+              "left": 6,
+              "top": 0,
+              "width": 6
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "jVqP7Lq",
+            "insightType": "chart",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "autoPlayAnimation": true,
+              "inheritLegendPlacement": true,
+              "legendPlacement": "OUTER_RIGHT",
+              "showLegend": false,
+              "showTooltips": true,
+              "showXAxis": true,
+              "showYAxis": true
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 2,
+              "left": 6,
+              "top": 4,
+              "width": 6
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "BnfwzhY",
+            "insightType": "chart",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "autoPlayAnimation": true,
+              "inheritLegendPlacement": true,
+              "legendPlacement": "OUTER_RIGHT",
+              "showLegend": false,
+              "showTooltips": true,
+              "showXAxis": true,
+              "showYAxis": true
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 2,
+              "left": 6,
+              "top": 2,
+              "width": 6
+            },
+            "clickAction": "OPEN_INSIGHT",
+            "displayMode": "INSIGHT",
+            "insightId": "Ax14IQ4",
+            "insightType": "chart",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "autoPlayAnimation": true,
+              "inheritLegendPlacement": true,
+              "legendPlacement": "OUTER_RIGHT",
+              "showLegend": false,
+              "showTooltips": true,
+              "showXAxis": true,
+              "showYAxis": true
+            },
+            "tileType": "INSIGHT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 2,
+              "left": 0,
+              "top": 0,
+              "width": 6
+            },
+            "clickAction": "DO_NOTHING",
+            "displayMode": "INSIGHT",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "NO",
+            "tileParams": {
+              "isTransparent": false,
+              "text": "### Model Monitoring\nGround-truth data is collected periodically and used to evaluate the active model in production\nRefer to the table on the left for initial model performance at training",
+              "textAlign": "LEFT"
+            },
+            "tileType": "TEXT"
+          },
+          {
+            "autoLoad": true,
+            "box": {
+              "height": 4,
+              "left": 0,
+              "top": 2,
+              "width": 6
+            },
+            "clickAction": "DO_NOTHING",
+            "displayMode": "INSIGHT",
+            "insightId": "40fbNAv",
+            "insightType": "saved-model_report",
+            "resizeImageMode": "FIT_SIZE",
+            "showTitle": "YES",
+            "tileParams": {
+              "advancedOptions": {
+                "interactiveScoring": {
+                  "featuresOrder": [
+                    "GDP_per_cap",
+                    "Country",
+                    "price_first_item_purchased",
+                    "campaign",
+                    "age",
+                    "pages_visited",
+                    "gender"
+                  ]
+                }
+              },
+              "displayMode": "performance-metrics"
+            },
+            "tileType": "INSIGHT",
+            "title": "Initial Model"
+          }
+        ]
+      },
+      "id": "4rd4STX",
+      "showTitle": false,
+      "title": "Model Monitoring - Future"
+    }
+  ],
+  "showGrid": true,
+  "tags": [],
+  "versionTag": {
+    "extendedProperties": {},
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1700167938514,
+    "versionNumber": 44
+  }
+}

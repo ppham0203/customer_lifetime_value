@@ -1,0 +1,120 @@
+{
+  "type": "export",
+  "neverRecomputeExistingPartitions": false,
+  "optionalDependencies": false,
+  "params": {
+    "clearOutputPartition": false,
+    "exportParams": {
+      "destinationType": "CUSTOM_MANAGED",
+      "temporaryFileBehavior": "AUTO",
+      "format": {
+        "type": "csv",
+        "params": {
+          "style": "excel",
+          "charset": "utf8",
+          "separator": "\t",
+          "quoteChar": "\"",
+          "escapeChar": "\\",
+          "dateSerializationFormat": "ISO",
+          "arrayMapFormat": "json",
+          "hiveSeparators": [
+            "\u0002",
+            "\u0003",
+            "\u0004",
+            "\u0005",
+            "\u0006",
+            "\u0007",
+            "\b"
+          ],
+          "skipRowsBeforeHeader": 0,
+          "parseHeaderRow": false,
+          "skipRowsAfterHeader": 0,
+          "probableNumberOfRecords": 0,
+          "normalizeBooleans": false,
+          "normalizeDoubles": true,
+          "readAdditionalColumnsBehavior": "INSERT_IN_DATA_WARNING",
+          "readMissingColumnsBehavior": "DISCARD_SILENT",
+          "readDataTypeMismatchBehavior": "DISCARD_WARNING",
+          "writeDataTypeMismatchBehavior": "DISCARD_WARNING",
+          "fileReadFailureBehavior": "FAIL",
+          "compress": ""
+        }
+      },
+      "destinationDatasetProjectKey": "MODERNONLINECUSTOMERLIFETIMEVALUE",
+      "overwriteDestinationDataset": false,
+      "config": {},
+      "applyExplorationFilters": false,
+      "selection": {
+        "useMemTable": false,
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "partitionSelectionMethod": "ALL",
+        "selectedPartitions": [],
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "FULL",
+        "maxRecords": 100000,
+        "targetRatio": 0.02,
+        "ascending": true,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
+      }
+    }
+  },
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "variables": {},
+  "dkuProperties": [],
+  "inputs": {
+    "main": {
+      "items": [
+        {
+          "ref": "customer_data_clean_python",
+          "deps": []
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "main": {
+      "items": [
+        {
+          "ref": "Fk6lHvfo",
+          "appendMode": false
+        }
+      ]
+    }
+  },
+  "labels": [],
+  "versionTag": {
+    "versionNumber": 3,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1691071058865,
+    "extendedProperties": {}
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1663090886697,
+    "extendedProperties": {}
+  },
+  "tags": [
+    "Analytics Type:BI"
+  ],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

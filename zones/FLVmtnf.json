@@ -1,0 +1,77 @@
+{
+  "name": "Explore, Prepare and Transform",
+  "color": "#087ABF",
+  "items": [
+    {
+      "objectId": "crm_last_year",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_crm_last_year_sql",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "crm_last_year_sql",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "last_year_join",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_last_year_join",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "cust_web",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_cust_web_joined",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "cust_web_joined",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_customer_data_clean_python",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "customer_data_clean",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "customer_data_clean_python",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_last_year_join_prepared",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "customer_countries",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "tx_historical",
+      "objectType": "DATASET",
+      "projectKey": "TX_QUERIES"
+    },
+    {
+      "objectId": "cust_web_joined_prepared",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_cust_web_joined_prepared",
+      "objectType": "RECIPE"
+    }
+  ],
+  "shared": [],
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

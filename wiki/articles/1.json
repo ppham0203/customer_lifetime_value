@@ -1,0 +1,38 @@
+{
+  "name": "Wiki Example",
+  "layout": "WIKI_ARTICLE",
+  "attachments": [
+    {
+      "attachmentType": "FILE",
+      "smartId": "ucA2NQdZJfeN",
+      "details": {
+        "objectDisplayName": "Dataiku Mail - DSS scenario Drift and Retrain_ SUCCESS.pdf",
+        "size": 178700,
+        "mimeType": "application/pdf"
+      },
+      "attachedBy": "chris.helmus@dataiku.com",
+      "attachedOn": 1687456364056
+    }
+  ],
+  "versionTag": {
+    "versionNumber": 4,
+    "lastModifiedBy": {
+      "login": "chris.helmus@dataiku.com"
+    },
+    "lastModifiedOn": 1698958668399,
+    "extendedProperties": {}
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1655487671854,
+    "extendedProperties": {}
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

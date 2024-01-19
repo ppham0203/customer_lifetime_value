@@ -1,0 +1,29 @@
+{
+  "type": "saved-model_report",
+  "params": {
+    "savedModelSmartId": "0tV18riV"
+  },
+  "owner": "admin",
+  "listed": false,
+  "name": "Full report of model Prediction (RANDOM_FOREST_CLASSIFICATION) on customer_data_clean_python",
+  "dashboardCreationId": "49oWPyU",
+  "versionTag": {
+    "versionNumber": 2,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1631892174346
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1631891987649
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
