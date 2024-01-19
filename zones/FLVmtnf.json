@@ -47,10 +47,6 @@
       "objectType": "RECIPE"
     },
     {
-      "objectId": "customer_countries",
-      "objectType": "DATASET"
-    },
-    {
       "objectId": "tx_historical",
       "objectType": "DATASET",
       "projectKey": "TX_QUERIES"
