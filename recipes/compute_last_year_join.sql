@@ -9,9 +9,6 @@ SELECT
     "crm_last_year_sql"."price_first_item_purchased" AS "price_first_item_purchased",
     "crm_last_year_sql"."gender" AS "gender",
     "crm_last_year_sql"."revenue" AS "revenue"
-  FROM "PUBLIC"."node-82567e9f_MODERNONLINECUSTOMERLIFETIMEVALUE_CUST_WEB_JOINED" "cust_web_joined"
-  LEFT JOIN "PUBLIC"."node-82567e9f_MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL" "crm_last_year_sql"
+  FROM "PUBLIC"."node-a03f40ab_MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL" "cust_web_joined"
+  LEFT JOIN "PUBLIC"."node-a03f40ab_MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL" "crm_last_year_sql"
     ON "cust_web_joined"."customer_id" = "crm_last_year_sql"."customer_id"
-    
-    
-    
