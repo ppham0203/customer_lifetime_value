@@ -13,11 +13,11 @@
     "main": {
       "items": [
         {
-          "ref": "customer_countries",
+          "ref": "web_data_last_year",
           "deps": []
         },
         {
-          "ref": "web_data_last_year",
+          "ref": "customers_countries",
           "deps": []
         }
       ]

@@ -111,11 +111,11 @@
   "virtualInputs": [
     {
       "outputColumnsSelectionMode": "MANUAL",
-      "index": 1
+      "index": 0
     },
     {
       "outputColumnsSelectionMode": "MANUAL",
-      "index": 0
+      "index": 1
     }
   ],
   "computedColumns": [],
@@ -136,23 +136,15 @@
             "type": "string"
           },
           {
-            "originalType": "VARCHAR",
             "name": "ip",
-            "comment": "",
-            "type": "string",
-            "maxLength": 4194304
+            "type": "string"
           },
           {
-            "originalType": "VARCHAR",
             "name": "Country",
-            "comment": "",
-            "type": "string",
-            "maxLength": 4194304
+            "type": "string"
           },
           {
-            "originalType": "NUMBER",
             "name": "GDP_per_cap",
-            "comment": "what this field means",
             "type": "bigint"
           }
         ],
