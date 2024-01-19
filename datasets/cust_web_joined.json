@@ -58,9 +58,9 @@
       {"name":"customer_id","type":"string","maxLength":4194304},
       {"name":"pages_visited","type":"string","maxLength":4194304},
       {"name":"campaign","type":"string","maxLength":4194304},
-      {"name":"ip","type":"string","originalType":"text","maxLength":4194304},
-      {"name":"Country","type":"string","originalType":"text","maxLength":4194304},
-      {"name":"GDP_per_cap","type":"bigint","originalType":"int8"}
+      {"name":"ip","type":"string","maxLength":4194304},
+      {"name":"Country","type":"string","maxLength":4194304},
+      {"name":"GDP_per_cap","type":"bigint","comment":"what this field means"}
     ],
     "userModified": true
   },
