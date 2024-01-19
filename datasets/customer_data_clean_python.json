@@ -62,7 +62,7 @@
       {"name":"pages_visited","type":"double"},
       {"name":"campaign","type":"boolean"},
       {"name":"ip","type":"string","maxLength":4194304},
-      {"name":"ip_geopoint","type":"string","comment":"customer ip","maxLength":4194304},
+      {"name":"ip_geopoint","type":"string","maxLength":4194304},
       {"name":"Country","type":"string","maxLength":4194304},
       {"name":"GDP_per_cap","type":"bigint"},
       {"name":"age","type":"bigint"},
@@ -72,7 +72,7 @@
       {"name":"Tier_Rev","type":"string","maxLength":4194304},
       {"name":"High Revenue","type":"boolean"}
     ],
-    "userModified": true
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
