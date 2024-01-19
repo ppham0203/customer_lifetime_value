@@ -66,14 +66,6 @@
     {
       "objectId": "compute_cust_web_joined_prepared",
       "objectType": "RECIPE"
-    },
-    {
-      "objectId": "compute_last_year_joined",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "last_year_joined",
-      "objectType": "DATASET"
     }
   ],
   "shared": [],
