@@ -3,14 +3,6 @@
   "name": "Model retrain and update",
   "active": false,
   "runAsUser": "peter.pham@dataiku.com",
-  "creationTag": {
-    "versionNumber": 13,
-    "lastModifiedBy": {
-      "login": "chris.helmus@dataiku.com"
-    },
-    "lastModifiedOn": 1680546156078,
-    "extendedProperties": {}
-  },
   "checklists": {
     "checklists": []
   },
@@ -38,11 +30,33 @@
         "minute": 41,
         "hour": 15,
         "timezone": "SERVER",
-        "lastUpdate": 1680546156078
+        "lastUpdate": 1706121392858
       }
     }
   ],
-  "reporters": [],
+  "reporters": [
+    {
+      "active": true,
+      "messaging": {
+        "type": "mail-scenario",
+        "configuration": {
+          "channelId": "training_smtp",
+          "subject": "DSS scenario ${scenarioName}: ${outcome}",
+          "recipient": "peter.pham@dataiku.com",
+          "sendAsHTML": false,
+          "attachments": [],
+          "messageSource": "TEMPLATE_FILE",
+          "templateFormat": "FREEMARKER",
+          "templateName": "default.ftl"
+        }
+      },
+      "id": "iAtkNwzS",
+      "name": "Model Retrain",
+      "runConditionEnabled": true,
+      "runCondition": "outcome !\u003d \u0027SUCCESS\u0027",
+      "phase": "END"
+    }
+  ],
   "params": {
     "steps": [
       {
