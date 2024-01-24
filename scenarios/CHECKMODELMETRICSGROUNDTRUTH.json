@@ -29,7 +29,7 @@
         "minute": 56,
         "hour": 5,
         "timezone": "SERVER",
-        "lastUpdate": 1706121469335
+        "lastUpdate": 1706132171083
       }
     }
   ],
@@ -209,7 +209,8 @@
                         "samplingMethod": "FULL",
                         "selectedPartitions": [],
                         "targetRatio": 0.02
-                      }
+                      },
+                      "destinationDatasetConnection": "api-node-referenced-data"
                     }
                   }
                 },
@@ -223,7 +224,8 @@
                       "orientation": "LANDSCAPE",
                       "paperSize": "A4",
                       "width": 1920
-                    }
+                    },
+                    "filtersBySlide": []
                   }
                 }
               ],
