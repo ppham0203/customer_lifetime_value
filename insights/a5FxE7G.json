@@ -1,243 +1,198 @@
 {
-  "checklists": {
-    "checklists": []
-  },
-  "creationTag": {
-    "extendedProperties": {},
-    "lastModifiedBy": {
-      "login": "chris.helmus@dataiku.com"
-    },
-    "lastModifiedOn": 1700167757940,
-    "versionNumber": 0
-  },
-  "customFields": {},
-  "dashboardCreationId": "49oWPyU",
-  "listed": false,
-  "name": "Avg of accuracy by date on metrics",
-  "owner": "chris.helmus@dataiku.com",
+  "type": "chart",
   "params": {
-    "customMeasures": [],
     "datasetSmartName": "metrics",
-    "def": {
-      "animationDimension": [],
-      "animationFrameDuration": 3000,
-      "animationRepeat": true,
-      "axis1LogScale": false,
-      "axis2LogScale": false,
-      "boxplotBreakdownDim": [],
-      "boxplotValue": [],
-      "bubblesOptions": {
-        "defaultRadius": 5.0,
-        "singleShape": "FILLED_CIRCLE"
-      },
-      "chartHeight": 200,
-      "colorMeasure": [],
-      "colorOptions": {
-        "ccScaleMode": "NORMAL",
-        "colorPalette": "default",
-        "customColors": {},
-        "customPalette": {
-          "colors": [],
-          "fixedValues": false,
-          "id": "__dku_custom__",
-          "name": "Custom Palette",
-          "values": []
+    "engineType": "LINO",
+    "refreshableSelection": {
+      "selection": {
+        "useMemTable": false,
+        "filter": {
+          "distinct": false,
+          "enabled": false
         },
-        "heatDensityMapIntensity": 0.5,
-        "heatDensityMapRadius": 0.5,
-        "numQuantizeSteps": 5,
-        "paletteMiddleValue": 0.0,
-        "paletteType": "CONTINUOUS",
-        "quantizationMode": "NONE",
-        "singleColor": "#2678B1",
-        "transparency": 0.75
+        "partitionSelectionMethod": "ALL",
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "HEAD_SEQUENTIAL",
+        "maxRecords": 10000,
+        "targetRatio": 0.02,
+        "ascending": true,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
       },
-      "computeMode": "NORMAL",
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "def": {
+      "type": "lines",
+      "variant": "normal",
+      "name": "Avg of accuracy by date",
+      "userEditedName": false,
       "displayWithEChartsByDefault": true,
-      "facetDimension": [],
-      "fillOpacity": 0.6,
-      "filters": [
-        {
-          "active": true,
-          "allValuesInSample": false,
-          "column": "date",
-          "columnType": "DATE",
-          "dateFilterType": "RANGE",
-          "excludeOtherValues": false,
-          "excludedValues": {
-            "8": true
-          },
-          "explicitExclude": false,
-          "filterSelectionType": "RANGE_OF_VALUES",
-          "filterType": "DATE_FACET",
-          "id": "I9Mz4JGzbOXMG7tI",
-          "isA": "filter",
-          "isAGlobalFilter": false,
-          "minValue": 1636588502669.0
-        }
-      ],
       "genericDimension0": [
         {
           "column": "date",
-          "dateParams": {
-            "mode": "AUTOMATIC"
-          },
-          "filters": [],
-          "forceLastPositionOthers": false,
-          "generateOthersCategory": true,
-          "isA": "dimension",
-          "maxValues": 0,
-          "multiplier": "Auto",
+          "type": "DATE",
           "numParams": {
             "emptyBinsMode": "AVERAGE"
           },
+          "dateParams": {
+            "mode": "AUTOMATIC"
+          },
+          "maxValues": 0,
+          "generateOthersCategory": true,
+          "forceLastPositionOthers": false,
           "oneTickPerBin": false,
+          "filters": [],
+          "isA": "dimension",
           "possibleSorts": [
             {
+              "type": "NATURAL",
               "label": "Natural ordering",
-              "sortAscending": true,
-              "type": "NATURAL"
+              "sortAscending": true
             },
             {
-              "label": "Average of accuracy, descending",
+              "type": "AGGREGATION",
               "measureIdx": 0,
-              "type": "AGGREGATION"
+              "label": "Average of accuracy, descending"
             },
             {
+              "type": "AGGREGATION",
+              "measureIdx": 0,
               "label": "Average of accuracy, ascending",
-              "measureIdx": 0,
-              "sortAscending": true,
-              "type": "AGGREGATION"
+              "sortAscending": true
             }
           ],
-          "prefix": "",
           "sort": {
+            "type": "NATURAL",
             "label": "Natural ordering",
-            "sortAscending": true,
-            "type": "NATURAL"
+            "sortAscending": true
           },
+          "prefix": "",
           "suffix": "",
-          "type": "DATE"
+          "multiplier": "Auto",
+          "digitGrouping": "DEFAULT"
         }
       ],
       "genericDimension1": [],
+      "facetDimension": [],
+      "animationDimension": [],
       "genericMeasures": [
         {
-          "colorRules": [],
           "column": "accuracy",
-          "computeMode": "NORMAL",
-          "computeModeDim": 0,
+          "function": "AVG",
+          "type": "NUMERICAL",
+          "displayed": true,
+          "isA": "measure",
           "displayAxis": "axis1",
           "displayType": "column",
-          "displayed": true,
-          "function": "AVG",
-          "isA": "measure",
-          "labelPosition": "BOTTOM",
+          "computeMode": "NORMAL",
+          "computeModeDim": 0,
           "multiplier": "Auto",
+          "digitGrouping": "DEFAULT",
           "prefix": "",
-          "showDisplayLabel": true,
           "suffix": "",
-          "type": "NUMERICAL"
+          "showDisplayLabel": true,
+          "labelPosition": "BOTTOM",
+          "colorRules": []
         }
       ],
+      "xDimension": [],
+      "yDimension": [],
+      "uaXDimension": [],
+      "uaYDimension": [],
+      "uaDimensionPair": [
+        {
+          "uaXDimension": [],
+          "uaYDimension": []
+        }
+      ],
+      "uaSize": [],
+      "uaShape": [],
+      "uaColor": [],
+      "uaTooltip": [],
+      "groupDimension": [],
+      "xMeasure": [],
+      "yMeasure": [],
+      "colorMeasure": [],
+      "sizeMeasure": [],
+      "geometry": [],
       "geoLayers": [
         {
+          "geometry": [],
           "colorOptions": {
             "ccScaleMode": "NORMAL",
-            "colorPalette": "default",
-            "customColors": {},
-            "customPalette": {
-              "colors": [],
-              "fixedValues": false,
-              "id": "__dku_custom__",
-              "name": "Custom palette",
-              "values": []
-            },
-            "heatDensityMapIntensity": 0.5,
-            "heatDensityMapRadius": 0.5,
+            "paletteType": "CONTINUOUS",
             "numQuantizeSteps": 5,
             "paletteMiddleValue": 0.0,
-            "paletteType": "CONTINUOUS",
+            "heatDensityMapIntensity": 0.5,
+            "heatDensityMapRadius": 0.5,
             "singleColor": "#659a88",
-            "transparency": 0.75
+            "transparency": 0.75,
+            "colorPalette": "default",
+            "customPalette": {
+              "id": "__dku_custom__",
+              "name": "Custom palette",
+              "colors": [],
+              "values": [],
+              "fixedValues": false
+            },
+            "customColors": {}
           },
-          "geometry": [],
           "uaColor": []
         }
       ],
-      "geometry": [],
-      "groupDimension": [],
-      "hexbinNumber": 20,
-      "hexbinRadius": 20,
-      "hexbinRadiusMode": "NUM_HEXAGONS",
-      "includeZero": false,
-      "legendPlacement": "OUTER_RIGHT",
-      "mapGridOptions": {
-        "gridLatDeg": 0.5,
-        "gridLonDeg": 0.5
-      },
-      "mapOptions": {
-        "lockSquareGrid": false,
-        "tilesLayer": "cartodb-positron"
-      },
-      "multiTooltips": false,
-      "name": "Avg of accuracy by date",
-      "pieOptions": {
-        "donutHoleSize": 54.0
-      },
-      "radarOptions": {
-        "filled": false,
-        "lineStyle": {
-          "type": "SOLID",
-          "width": 2.0
-        },
-        "polygonsSource": "MEASURES"
-      },
-      "scatterOptions": {
-        "equalScales": false,
-        "identityLine": false,
-        "numberOfRecords": 100000.0,
-        "regression": {
-          "displayFormula": false,
-          "labelPosition": "INSIDE_END",
-          "lineColor": "#000",
-          "lineSize": 1,
-          "show": false,
-          "textFormatting": {
-            "fontColor": "#333",
-            "fontSize": 11,
-            "hasBackground": false
-          },
-          "type": "LINEAR"
-        }
-      },
-      "showInChartLabels": true,
-      "showInChartTotalValues": true,
-      "showInChartValues": false,
-      "showLegend": true,
-      "showXAxis": false,
-      "singleXAxis": true,
-      "sizeMeasure": [],
-      "smoothing": false,
-      "strokeWidth": 4,
       "tooltipMeasures": [],
-      "type": "lines",
-      "uaColor": [],
-      "uaShape": [],
-      "uaSize": [],
-      "uaTooltip": [],
-      "uaXDimension": [],
-      "uaYDimension": [],
-      "useLiveProcessingIfAvailable": true,
-      "userEditedName": false,
-      "variant": "normal",
+      "boxplotBreakdownDim": [],
+      "boxplotValue": [],
+      "filters": [
+        {
+          "filterType": "DATE_FACET",
+          "filterSelectionType": "RANGE_OF_VALUES",
+          "id": "I9Mz4JGzbOXMG7tI",
+          "column": "date",
+          "columnType": "DATE",
+          "dateFilterType": "RANGE",
+          "minValue": 1.636588502669E12,
+          "timezone": "UTC",
+          "isA": "filter",
+          "excludedValues": {
+            "8": true
+          },
+          "isAGlobalFilter": false,
+          "useMinimalUi": false,
+          "excludeOtherValues": false,
+          "allValuesInSample": false,
+          "active": true,
+          "explicitExclude": false
+        }
+      ],
       "xAxisFormatting": {
+        "displayAxis": true,
+        "showAxisTitle": false,
+        "axisTitleFormatting": {
+          "fontSize": 15,
+          "fontColor": "#333",
+          "hasBackground": false
+        },
         "axisValuesFormatting": {
           "numberFormatting": {
             "multiplier": "Auto",
+            "digitGrouping": "DEFAULT",
             "prefix": "",
             "suffix": ""
+          },
+          "axisTicksFormatting": {
+            "fontSize": 12,
+            "fontColor": "#333",
+            "hasBackground": false
           }
+        },
+        "ticksConfig": {
+          "mode": "INTERVAL"
         },
         "customExtent": {
           "editMode": "AUTO",
@@ -246,37 +201,33 @@
             null
           ]
         },
-        "isLogScale": false,
-        "ticksConfig": {
-          "mode": "INTERVAL"
-        }
-      },
-      "xAxisMode": "NORMAL",
-      "xAxisNumberFormattingOptions": {
-        "multiplier": "Auto",
-        "prefix": "",
-        "suffix": ""
-      },
-      "xCustomExtent": {
-        "editMode": "AUTO",
-        "manualExtent": [
-          null,
-          null
-        ]
-      },
-      "xDimension": [],
-      "xMeasure": [],
-      "xTicks": {
-        "mode": "INTERVAL"
+        "isLogScale": false
       },
       "yAxesFormatting": [
         {
+          "id": "y_left_0",
+          "displayAxis": true,
+          "showAxisTitle": false,
+          "axisTitleFormatting": {
+            "fontSize": 15,
+            "fontColor": "#333",
+            "hasBackground": false
+          },
           "axisValuesFormatting": {
             "numberFormatting": {
               "multiplier": "Auto",
+              "digitGrouping": "DEFAULT",
               "prefix": "",
               "suffix": ""
+            },
+            "axisTicksFormatting": {
+              "fontSize": 12,
+              "fontColor": "#333",
+              "hasBackground": false
             }
+          },
+          "ticksConfig": {
+            "mode": "INTERVAL"
           },
           "customExtent": {
             "editMode": "AUTO",
@@ -285,73 +236,201 @@
               null
             ]
           },
-          "isLogScale": false,
-          "ticksConfig": {
-            "mode": "INTERVAL"
-          }
+          "isLogScale": false
         }
       ],
+      "radialAxisFormatting": {
+        "showAxisTitle": false,
+        "axisTitleFormatting": {
+          "fontSize": 15,
+          "fontColor": "#333",
+          "hasBackground": false
+        },
+        "ticksConfig": {
+          "mode": "INTERVAL"
+        },
+        "customExtent": {},
+        "isLogScale": false
+      },
+      "includeZero": false,
+      "smoothing": false,
+      "showLegend": true,
+      "showInChartValues": false,
+      "showInChartTotalValues": true,
+      "showInChartLabels": true,
+      "strokeWidth": 4,
+      "fillOpacity": 0.6,
+      "hexbinRadius": 20,
+      "hexbinNumber": 20,
+      "hexbinRadiusMode": "NUM_HEXAGONS",
+      "valuesInChartDisplayOptions": {
+        "overlappingStrategy": "AUTO",
+        "textFormatting": {
+          "fontSize": 11,
+          "fontColor": "AUTO",
+          "hasBackground": false,
+          "backgroundColor": "#D9D9D9BF"
+        }
+      },
+      "chartHeight": 200,
+      "singleXAxis": true,
+      "multiTooltips": false,
+      "animationFrameDuration": 3000,
+      "animationRepeat": true,
+      "colorOptions": {
+        "ccScaleMode": "NORMAL",
+        "paletteType": "CONTINUOUS",
+        "quantizationMode": "NONE",
+        "numQuantizeSteps": 5,
+        "paletteMiddleValue": 0.0,
+        "heatDensityMapIntensity": 0.5,
+        "heatDensityMapRadius": 0.5,
+        "singleColor": "#2678B1",
+        "transparency": 0.75,
+        "colorPalette": "default",
+        "customPalette": {
+          "id": "__dku_custom__",
+          "name": "Custom Palette",
+          "colors": [],
+          "values": [],
+          "fixedValues": false
+        },
+        "customColors": {}
+      },
+      "bubblesOptions": {
+        "defaultRadius": 5.0,
+        "singleShape": "FILLED_CIRCLE"
+      },
+      "computeMode": "NORMAL",
+      "xAxisMode": "NORMAL",
       "yAxisMode": "NORMAL",
-      "yAxisNumberFormattingOptions": {
-        "multiplier": "Auto",
-        "prefix": "",
-        "suffix": ""
-      },
-      "yCustomExtent": {
-        "editMode": "AUTO",
-        "manualExtent": [
-          null,
-          null
-        ]
-      },
-      "yDimension": [],
-      "yMeasure": [],
-      "yTicks": {
-        "mode": "INTERVAL"
+      "pieOptions": {
+        "donutHoleSize": 54.0
       },
       "zoomOptions": {
-        "enabled": true,
-        "persisted": true,
         "scale": 1.0,
         "translate": [
           0.0,
           0.0
-        ]
+        ],
+        "enabled": true,
+        "persisted": true
+      },
+      "scatterOptions": {
+        "equalScales": false,
+        "identityLine": false,
+        "regression": {
+          "show": false,
+          "displayFormula": false,
+          "type": "LINEAR",
+          "labelPosition": "INSIDE_END",
+          "lineColor": "#000",
+          "lineSize": 1,
+          "textFormatting": {
+            "fontSize": 11,
+            "fontColor": "#333",
+            "hasBackground": false
+          }
+        },
+        "numberOfRecords": 100000.0
+      },
+      "scatterMPOptions": {
+        "pairColorOptions": {
+          "singleColor": "#659a88",
+          "transparency": 0.75,
+          "colorPalette": "default",
+          "customPalette": {
+            "id": "__dku_custom__",
+            "name": "Custom palette",
+            "colors": [],
+            "values": [],
+            "fixedValues": false
+          },
+          "customColors": {}
+        },
+        "numberOfRecords": 100000.0
+      },
+      "mapOptions": {
+        "tilesLayer": "cartodb-positron",
+        "lockSquareGrid": false
+      },
+      "mapGridOptions": {
+        "gridLonDeg": 0.5,
+        "gridLatDeg": 0.5
+      },
+      "radarOptions": {
+        "filled": false,
+        "polygonsSource": "MEASURES",
+        "lineStyle": {
+          "width": 2.0,
+          "type": "SOLID"
+        }
+      },
+      "sankeyOptions": {
+        "curveness": 0.5,
+        "linkColorVariant": "GRADIENT",
+        "nodeLabelFormatting": {
+          "fontSize": 11,
+          "fontColor": "AUTO",
+          "hasBackground": false,
+          "backgroundColor": "#D9D9D9BF"
+        }
+      },
+      "useLiveProcessingIfAvailable": true,
+      "legendPlacement": "OUTER_RIGHT",
+      "legendFormatting": {
+        "fontSize": 11,
+        "fontColor": "#333",
+        "hasBackground": false
+      },
+      "pivotTableOptions": {
+        "measureDisplayMode": "ROWS",
+        "displayTotals": {
+          "subTotals": {
+            "rows": true,
+            "columns": true
+          },
+          "grandTotal": {
+            "row": true,
+            "column": true
+          }
+        },
+        "tableFormatting": {
+          "rowHeaders": {
+            "fontSize": 12,
+            "fontColor": "#333",
+            "hasBackground": false
+          },
+          "columnHeaders": {
+            "fontSize": 12,
+            "fontColor": "#333",
+            "hasBackground": false
+          },
+          "values": {
+            "fontSize": 12,
+            "fontColor": "#333",
+            "hasBackground": false
+          }
+        }
       }
     },
-    "engineType": "LINO",
-    "refreshableSelection": {
-      "_refreshTrigger": 0,
-      "autoRefreshSample": false,
-      "selection": {
-        "ascending": true,
-        "filter": {
-          "distinct": false,
-          "enabled": false
-        },
-        "latestPartitionsN": 1,
-        "maxReadUncompressedBytes": -1,
-        "maxRecords": 10000,
-        "ordering": {
-          "enabled": false,
-          "rules": []
-        },
-        "partitionSelectionMethod": "ALL",
-        "samplingMethod": "HEAD_SEQUENTIAL",
-        "targetRatio": 0.02,
-        "useMemTable": false,
-        "withinFirstN": -1
-      }
-    }
+    "customMeasures": []
   },
-  "tags": [],
-  "type": "chart",
-  "versionTag": {
-    "extendedProperties": {},
+  "owner": "chris.helmus@dataiku.com",
+  "listed": false,
+  "name": "Avg of accuracy by date on metrics",
+  "dashboardCreationId": "49oWPyU",
+  "creationTag": {
+    "versionNumber": 0,
     "lastModifiedBy": {
       "login": "chris.helmus@dataiku.com"
     },
     "lastModifiedOn": 1700167757940,
-    "versionNumber": 0
+    "extendedProperties": {}
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
   }
 }
