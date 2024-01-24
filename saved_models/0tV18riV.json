@@ -4,7 +4,7 @@
   "rebuildBehavior": "NORMAL",
   "name": "Prediction (RANDOM_FOREST_CLASSIFICATION) on customer_data_clean_python",
   "contentType": "prediction/py_memory",
-  "activeVersion": "1706121608147",
+  "activeVersion": "1706129739694",
   "inlineVersions": [],
   "conditionalOutputs": [],
   "partitioning": {
