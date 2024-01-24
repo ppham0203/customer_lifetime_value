@@ -29,13 +29,13 @@
         "minute": 56,
         "hour": 5,
         "timezone": "SERVER",
-        "lastUpdate": 1706133294647
+        "lastUpdate": 1706133389994
       }
     }
   ],
   "reporters": [
     {
-      "active": false,
+      "active": true,
       "messaging": {
         "type": "mail-scenario",
         "configuration": {
