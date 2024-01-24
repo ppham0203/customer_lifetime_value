@@ -29,7 +29,7 @@
         "minute": 56,
         "hour": 5,
         "timezone": "SERVER",
-        "lastUpdate": 1706132635052
+        "lastUpdate": 1706132863741
       }
     }
   ],
@@ -80,7 +80,7 @@
               "partitionsSpec": ""
             }
           ],
-          "jobType": "RECURSIVE_BUILD",
+          "jobType": "NON_RECURSIVE_FORCED_BUILD",
           "autoUpdateSchemaBeforeEachRecipeRun": false,
           "stopAtFlowZoneBoundary": false,
           "refreshHiveMetastore": true,
