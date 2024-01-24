@@ -45,14 +45,6 @@
     "queryKeys": []
   },
   "deploymentMonitoring": [],
-  "versionTag": {
-    "versionNumber": 14,
-    "lastModifiedBy": {
-      "login": "chris.helmus@dataiku.com"
-    },
-    "lastModifiedOn": 1702403665329,
-    "extendedProperties": {}
-  },
   "tags": [],
   "customFields": {},
   "checklists": {
