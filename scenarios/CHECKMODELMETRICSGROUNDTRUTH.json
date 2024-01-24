@@ -3,14 +3,6 @@
   "name": "Check model metrics - ground truth",
   "active": false,
   "runAsUser": "peter.pham@dataiku.com",
-  "creationTag": {
-    "versionNumber": 28,
-    "lastModifiedBy": {
-      "login": "chris.helmus@dataiku.com"
-    },
-    "lastModifiedOn": 1686148606602,
-    "extendedProperties": {}
-  },
   "checklists": {
     "checklists": []
   },
@@ -37,7 +29,7 @@
         "minute": 56,
         "hour": 5,
         "timezone": "SERVER",
-        "lastUpdate": 1686148606602
+        "lastUpdate": 1706121469335
       }
     }
   ],
@@ -47,10 +39,10 @@
       "messaging": {
         "type": "mail-scenario",
         "configuration": {
-          "channelId": "my_email_channel",
+          "channelId": "training_smtp",
           "subject": "DSS scenario ${scenarioName}: ${outcome}",
           "sender": "chris",
-          "recipient": "chris.helmus@dataiku.com",
+          "recipient": "peter.pham@dataiku.com",
           "sendAsHTML": false,
           "attachments": [],
           "messageSource": "TEMPLATE_FILE",
