@@ -40,7 +40,10 @@
         "pipelineAllowStart": true,
         "pipelineAllowMerge": true
       },
-      "maxThreads": 8
+      "maxThreads": 8,
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      }
     }
   },
   "customMeta": {
@@ -71,19 +74,13 @@
     }
   },
   "labels": [],
-  "versionTag": {
-    "versionNumber": 7,
-    "lastModifiedBy": {
-      "login": "admin"
-    },
-    "lastModifiedOn": 1678726292026
-  },
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1631655329925
+    "lastModifiedOn": 1631655329925,
+    "extendedProperties": {}
   },
   "tags": [
     "mlops"
