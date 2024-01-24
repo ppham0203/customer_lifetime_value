@@ -52,7 +52,7 @@
     {
       "preview": false,
       "metaType": "PROCESSOR",
-      "disabled": false,
+      "disabled": true,
       "type": "CreateColumnWithGREL",
       "params": {
         "expression": "if(rand(0,4)\u003e2,\"false\",\"true\")",
