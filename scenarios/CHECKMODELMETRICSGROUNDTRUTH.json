@@ -29,7 +29,7 @@
         "minute": 56,
         "hour": 5,
         "timezone": "SERVER",
-        "lastUpdate": 1706132863741
+        "lastUpdate": 1706132969554
       }
     }
   ],
@@ -117,7 +117,7 @@
         "id": "run_scenario_null.Model_retrain_and_update",
         "type": "run_scenario",
         "name": "Model retrain and update (copy)",
-        "runConditionType": "RUN_IF_STATUS_MATCH",
+        "runConditionType": "DISABLED",
         "runConditionStatuses": [
           "FAILED"
         ],
