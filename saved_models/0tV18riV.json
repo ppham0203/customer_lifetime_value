@@ -3279,8 +3279,8 @@
     "customMeasures": [],
     "labels": []
   },
-  "lastTrainIndex": 1,
-  "lastTrainJobId": "Scenario_build_Prediction__RANDOM_FOREST_CLASSIFICATION__on_customer_data_clean_python_2024-01-24T18-40-06.374",
+  "lastTrainIndex": 2,
+  "lastTrainJobId": "Build_Prediction__RANDOM_FOREST_CLASSIFICATION__on_customer_data_clean_python_2024-01-24T20-55-39.139",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
