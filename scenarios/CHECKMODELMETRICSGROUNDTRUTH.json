@@ -29,7 +29,7 @@
         "minute": 56,
         "hour": 5,
         "timezone": "SERVER",
-        "lastUpdate": 1706133252336
+        "lastUpdate": 1706133294647
       }
     }
   ],
@@ -52,7 +52,7 @@
       },
       "id": "9rCAPlIQ",
       "name": "Model Performance Alert",
-      "runConditionEnabled": true,
+      "runConditionEnabled": false,
       "runCondition": "stepOutcome_precision_recall_drift !\u003d \u0027SUCCESS\u0027 ",
       "phase": "END"
     }
