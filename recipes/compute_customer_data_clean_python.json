@@ -40,14 +40,6 @@
     }
   },
   "labels": [],
-  "versionTag": {
-    "versionNumber": 92,
-    "lastModifiedBy": {
-      "login": "chris.helmus@dataiku.com"
-    },
-    "lastModifiedOn": 1700176962808,
-    "extendedProperties": {}
-  },
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
