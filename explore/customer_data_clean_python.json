@@ -1849,6 +1849,7 @@
             "computeMode": "NORMAL",
             "computeModeDim": 0,
             "multiplier": "Auto",
+            "digitGrouping": "DEFAULT",
             "prefix": "",
             "suffix": "",
             "showDisplayLabel": true,
@@ -1866,6 +1867,7 @@
             "computeMode": "NORMAL",
             "computeModeDim": 0,
             "multiplier": "Auto",
+            "digitGrouping": "DEFAULT",
             "prefix": "",
             "suffix": "",
             "showDisplayLabel": true,
@@ -1888,41 +1890,42 @@
             "isA": "dimension",
             "possibleSorts": [
               {
+                "type": "NATURAL",
                 "label": "Natural ordering",
-                "sortAscending": true,
-                "type": "NATURAL"
+                "sortAscending": true
               },
               {
-                "label": "Average of revenue, descending",
+                "type": "AGGREGATION",
                 "measureIdx": 0,
-                "type": "AGGREGATION"
+                "label": "Average of revenue, descending"
               },
               {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
                 "label": "Average of revenue, ascending",
-                "measureIdx": 0,
-                "sortAscending": true,
-                "type": "AGGREGATION"
+                "sortAscending": true
               },
               {
-                "label": "Average of price_first_item_purchased, descending",
+                "type": "AGGREGATION",
                 "measureIdx": 1,
-                "type": "AGGREGATION"
+                "label": "Average of price_first_item_purchased, descending"
               },
               {
+                "type": "AGGREGATION",
+                "measureIdx": 1,
                 "label": "Average of price_first_item_purchased, ascending",
-                "measureIdx": 1,
-                "sortAscending": true,
-                "type": "AGGREGATION"
+                "sortAscending": true
               }
             ],
             "sort": {
-              "label": "Average of revenue, descending",
+              "type": "AGGREGATION",
               "measureIdx": 0,
-              "type": "AGGREGATION"
+              "label": "Average of revenue, descending"
             },
             "prefix": "",
             "suffix": "",
-            "multiplier": "Auto"
+            "multiplier": "Auto",
+            "digitGrouping": "DEFAULT"
           },
           {
             "column": "campaign",
@@ -1938,41 +1941,42 @@
             "isA": "dimension",
             "possibleSorts": [
               {
+                "type": "NATURAL",
                 "label": "Natural ordering",
-                "sortAscending": true,
-                "type": "NATURAL"
+                "sortAscending": true
               },
               {
-                "label": "Average of revenue, descending",
+                "type": "AGGREGATION",
                 "measureIdx": 0,
-                "type": "AGGREGATION"
+                "label": "Average of revenue, descending"
               },
               {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
                 "label": "Average of revenue, ascending",
-                "measureIdx": 0,
-                "sortAscending": true,
-                "type": "AGGREGATION"
+                "sortAscending": true
               },
               {
-                "label": "Average of price_first_item_purchased, descending",
+                "type": "AGGREGATION",
                 "measureIdx": 1,
-                "type": "AGGREGATION"
+                "label": "Average of price_first_item_purchased, descending"
               },
               {
+                "type": "AGGREGATION",
+                "measureIdx": 1,
                 "label": "Average of price_first_item_purchased, ascending",
-                "measureIdx": 1,
-                "sortAscending": true,
-                "type": "AGGREGATION"
+                "sortAscending": true
               }
             ],
             "sort": {
-              "label": "Average of revenue, descending",
+              "type": "AGGREGATION",
               "measureIdx": 0,
-              "type": "AGGREGATION"
+              "label": "Average of revenue, descending"
             },
             "prefix": "",
             "suffix": "",
-            "multiplier": "Auto"
+            "multiplier": "Auto",
+            "digitGrouping": "DEFAULT"
           }
         ],
         "yDimension": [
@@ -1990,41 +1994,42 @@
             "isA": "dimension",
             "possibleSorts": [
               {
+                "type": "NATURAL",
                 "label": "Natural ordering",
-                "sortAscending": true,
-                "type": "NATURAL"
+                "sortAscending": true
               },
               {
-                "label": "Average of revenue, descending",
+                "type": "AGGREGATION",
                 "measureIdx": 0,
-                "type": "AGGREGATION"
+                "label": "Average of revenue, descending"
               },
               {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
                 "label": "Average of revenue, ascending",
-                "measureIdx": 0,
-                "sortAscending": true,
-                "type": "AGGREGATION"
+                "sortAscending": true
               },
               {
-                "label": "Average of price_first_item_purchased, descending",
+                "type": "AGGREGATION",
                 "measureIdx": 1,
-                "type": "AGGREGATION"
+                "label": "Average of price_first_item_purchased, descending"
               },
               {
+                "type": "AGGREGATION",
+                "measureIdx": 1,
                 "label": "Average of price_first_item_purchased, ascending",
-                "measureIdx": 1,
-                "sortAscending": true,
-                "type": "AGGREGATION"
+                "sortAscending": true
               }
             ],
             "sort": {
-              "label": "Average of revenue, descending",
+              "type": "AGGREGATION",
               "measureIdx": 0,
-              "type": "AGGREGATION"
+              "label": "Average of revenue, descending"
             },
             "prefix": "",
             "suffix": "",
-            "multiplier": "Auto"
+            "multiplier": "Auto",
+            "digitGrouping": "DEFAULT"
           }
         ],
         "uaXDimension": [],
@@ -2086,6 +2091,7 @@
           "axisValuesFormatting": {
             "numberFormatting": {
               "multiplier": "Auto",
+              "digitGrouping": "DEFAULT",
               "prefix": "",
               "suffix": ""
             },
@@ -2110,6 +2116,7 @@
         },
         "yAxesFormatting": [
           {
+            "id": "y_left_0",
             "displayAxis": true,
             "showAxisTitle": true,
             "axisTitleFormatting": {
@@ -2120,6 +2127,42 @@
             "axisValuesFormatting": {
               "numberFormatting": {
                 "multiplier": "Auto",
+                "digitGrouping": "DEFAULT",
+                "prefix": "",
+                "suffix": ""
+              },
+              "axisTicksFormatting": {
+                "fontSize": 12,
+                "fontColor": "#333",
+                "hasBackground": false
+              }
+            },
+            "ticksConfig": {
+              "mode": "INTERVAL"
+            },
+            "customExtent": {
+              "editMode": "AUTO",
+              "manualExtent": [
+                null,
+                null
+              ]
+            },
+            "isLogScale": false,
+            "includeZero": true
+          },
+          {
+            "id": "y_right_0",
+            "displayAxis": true,
+            "showAxisTitle": true,
+            "axisTitleFormatting": {
+              "fontSize": 15,
+              "fontColor": "#333",
+              "hasBackground": false
+            },
+            "axisValuesFormatting": {
+              "numberFormatting": {
+                "multiplier": "Auto",
+                "digitGrouping": "DEFAULT",
                 "prefix": "",
                 "suffix": ""
               },
@@ -2143,6 +2186,20 @@
             "includeZero": true
           }
         ],
+        "radialAxisFormatting": {
+          "showAxisTitle": false,
+          "axisTitleFormatting": {
+            "fontSize": 15,
+            "fontColor": "#333",
+            "hasBackground": false
+          },
+          "ticksConfig": {
+            "mode": "INTERVAL"
+          },
+          "customExtent": {},
+          "isLogScale": false,
+          "includeZero": true
+        },
         "smoothing": true,
         "showLegend": true,
         "strokeWidth": 1,
@@ -2261,7 +2318,13 @@
         },
         "sankeyOptions": {
           "curveness": 0.5,
-          "linkColorVariant": "GRADIENT"
+          "linkColorVariant": "GRADIENT",
+          "nodeLabelFormatting": {
+            "fontSize": 11,
+            "fontColor": "AUTO",
+            "hasBackground": false,
+            "backgroundColor": "#D9D9D9BF"
+          }
         },
         "useLiveProcessingIfAvailable": true,
         "legendPlacement": "OUTER_RIGHT",
@@ -2280,6 +2343,23 @@
             "grandTotal": {
               "row": true,
               "column": true
+            }
+          },
+          "tableFormatting": {
+            "rowHeaders": {
+              "fontSize": 12,
+              "fontColor": "#333",
+              "hasBackground": false
+            },
+            "columnHeaders": {
+              "fontSize": 12,
+              "fontColor": "#333",
+              "hasBackground": false
+            },
+            "values": {
+              "fontSize": 12,
+              "fontColor": "#333",
+              "hasBackground": false
             }
           }
         }
