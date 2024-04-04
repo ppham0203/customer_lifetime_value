@@ -50,6 +50,11 @@
       "objectId": "tx_historical",
       "objectType": "DATASET",
       "projectKey": "TX_QUERIES"
+    },
+    {
+      "objectId": "TRANSACTIONS_joined_prepared",
+      "objectType": "DATASET",
+      "projectKey": "PETERMLOPSPRODUCTIONDEPLOYMENT"
     }
   ],
   "shared": [],
