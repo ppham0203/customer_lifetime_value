@@ -50,14 +50,6 @@
       "objectId": "tx_historical",
       "objectType": "DATASET",
       "projectKey": "TX_QUERIES"
-    },
-    {
-      "objectId": "cust_web_joined_prepared",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_cust_web_joined_prepared",
-      "objectType": "RECIPE"
     }
   ],
   "shared": [],

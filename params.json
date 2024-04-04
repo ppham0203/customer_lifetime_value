@@ -135,6 +135,8 @@
       "useManualPluginsInfo": false,
       "exportSavedModelsRequiredVersions": false,
       "exportNotebooksWithOutputs": true,
+      "exportForNewBranch": false,
+      "exportKnowledgeBanks": false,
       "includedDatasetsData": [
         {
           "name": "crm_last_year",
@@ -168,6 +170,7 @@
         }
       ],
       "includedCodeStudios": [],
+      "includedKnowledgeBanks": [],
       "includedLabelingTasks": [],
       "shareAllInputDatasets": false,
       "exportForeignObjectsReferences": true
