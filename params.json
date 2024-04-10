@@ -37,6 +37,36 @@
         "modes": [
           "READ"
         ]
+      },
+      {
+        "objectRef": {
+          "objectId": "cust_campaigns",
+          "objectType": "DATASET"
+        },
+        "modes": [
+          "DISCOVER",
+          "READ"
+        ]
+      },
+      {
+        "objectRef": {
+          "objectId": "crm_last_year",
+          "objectType": "DATASET"
+        },
+        "modes": [
+          "DISCOVER",
+          "READ"
+        ]
+      },
+      {
+        "objectRef": {
+          "objectId": "customer_data_clean",
+          "objectType": "DATASET"
+        },
+        "modes": [
+          "DISCOVER",
+          "READ"
+        ]
       }
     ]
   },
@@ -101,6 +131,18 @@
             "appearOnFlow": true
           }
         ]
+      },
+      {
+        "type": "DATASET",
+        "localName": "cust_campaigns",
+        "quickSharingEnabled": true,
+        "rules": []
+      },
+      {
+        "type": "DATASET",
+        "localName": "customer_data_clean",
+        "quickSharingEnabled": true,
+        "rules": []
       }
     ]
   },
@@ -263,7 +305,7 @@
     "container": {
       "containerMode": "INHERIT"
     },
-    "containerForManagedCodeWorkloads": {
+    "containerForVisualRecipesWorkloads": {
       "containerMode": "INHERIT"
     },
     "datasetsCreationSettings": {
