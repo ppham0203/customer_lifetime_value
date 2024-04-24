@@ -1,0 +1,38 @@
+{
+  "connection": "managed-snowflake",
+  "name": "notebook editor for compute_last_year_join",
+  "recipeId": "compute_last_year_join",
+  "cells": [
+    {
+      "id": "yy9IDnkyrDp5",
+      "type": "QUERY",
+      "name": "Created from \u0027compute_last_year_join\u0027 recipe on Wed, 24 Apr 2024 21:31:28 GMT",
+      "code": "SELECT \n    \"cust_web_joined\".\"customer_id\" AS \"customer_id\",\n    \"cust_web_joined\".\"pages_visited\" AS \"pages_visited\",\n    \"cust_web_joined\".\"campaign\" AS \"campaign\",\n    \"cust_web_joined\".\"ip\" AS \"ip\",\n    \"cust_web_joined\".\"Country\" AS \"Country\",\n    \"cust_web_joined\".\"GDP_per_cap\" AS \"GDP_per_cap\",\n    \"crm_last_year_sql\".\"birth\" AS \"birth\",\n    \"crm_last_year_sql\".\"price_first_item_purchased\" AS \"price_first_item_purchased\",\n    \"crm_last_year_sql\".\"gender\" AS \"gender\",\n    \"crm_last_year_sql\".\"revenue\" AS \"revenue\"\n  FROM \"PUBLIC\".\"node-a03f40ab_MODERNONLINECUSTOMERLIFETIMEVALUE_CUST_WEB_JOINED\" \"cust_web_joined\"\n  LEFT JOIN \"PUBLIC\".\"node-a03f40ab_MODERNONLINECUSTOMERLIFETIMEVALUE_CRM_LAST_YEAR_SQL\" \"crm_last_year_sql\"\n    ON \"cust_web_joined\".\"customer_id\" \u003d \"crm_last_year_sql\".\"customer_id\"",
+      "querySettings": {
+        "addLimitToStatement": true,
+        "statementsOutOfTransaction": false,
+        "inheritConf": "default",
+        "extraConf": [],
+        "addDkuUdf": false,
+        "statementsParseMode": "SPLIT",
+        "statementsExecutionMode": "PREPARED"
+      }
+    }
+  ],
+  "automationLocal": false,
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "peter.pham@dataiku.com"
+    },
+    "lastModifiedOn": 1713994288190,
+    "extendedProperties": {}
+  },
+  "tags": [
+    "recipe-editor"
+  ],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
